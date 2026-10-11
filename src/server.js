@@ -224,5 +224,5 @@ export function createAppServer({ liveLoader = fetchLiveCaseInputs, savedLoader 
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const port = Number(process.env.PORT ?? 4173);
-  createAppServer().listen(port, "127.0.0.1", () => console.log(`FULCRUM is running at http://localhost:${port}`));
+  createAppServer().listen(port, "0.0.0.0", () => console.log(`FULCRUM is running at http://localhost:${port}`));
 }
