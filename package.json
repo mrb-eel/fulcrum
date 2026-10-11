@@ -6,6 +6,10 @@
   "scripts": {
     "dev": "node src/server.js",
     "test": "node --test",
-    "capture:snapshot": "node scripts/capture-snapshot.js"
+    "capture:snapshot": "node scripts/capture-snapshot.js",
+    "start": "node src/server.js"
+  },
+  "engines": {
+    "node": ">=20"
   }
 }
