@@ -1,0 +1,184 @@
+{
+  "schemaVersion": "fulcrum-portfolio/v1",
+  "positions": [
+    {
+      "id": "qa:0",
+      "label": "QA Unleveraged ETH · example",
+      "kind": "spot",
+      "assets": [
+        {
+          "id": "example-eth",
+          "symbol": "ETH",
+          "role": "holding",
+          "valueUsd": 100000
+        }
+      ],
+      "protocol": "Illustrative model",
+      "chainId": 1,
+      "origin": "imported",
+      "observedAt": "2026-10-10T00:00:00Z",
+      "oracle": {
+        "mode": "none",
+        "evidenceIds": [
+          "assumptions"
+        ]
+      },
+      "quotes": [],
+      "evidence": [
+        {
+          "id": "assumptions",
+          "status": "assumed",
+          "claim": "Invented balances and pricing response for model comparison; not an observed address.",
+          "sourceUrl": null
+        }
+      ],
+      "dependencies": [
+        {
+          "id": "example:example-eth",
+          "label": "ETH",
+          "lens": "value",
+          "status": "inferred",
+          "assetIds": [
+            "example-eth"
+          ],
+          "evidenceIds": [
+            "assumptions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qa:1",
+      "label": "QA ETH / USDC · example",
+      "kind": "collateralized-loan",
+      "assets": [
+        {
+          "id": "example-eth",
+          "symbol": "ETH",
+          "role": "collateral",
+          "valueUsd": 100000,
+          "oracleValueUsd": 100000,
+          "liquidationThreshold": 0.8
+        },
+        {
+          "id": "example-usdc",
+          "symbol": "USDC",
+          "role": "debt",
+          "valueUsd": 60000
+        }
+      ],
+      "protocol": "Illustrative model",
+      "chainId": 1,
+      "origin": "imported",
+      "observedAt": "2026-10-10T00:00:00Z",
+      "oracle": {
+        "mode": "market",
+        "evidenceIds": [
+          "assumptions"
+        ]
+      },
+      "quotes": [],
+      "evidence": [
+        {
+          "id": "assumptions",
+          "status": "assumed",
+          "claim": "Invented balances and pricing response for model comparison; not an observed address.",
+          "sourceUrl": null
+        }
+      ],
+      "dependencies": [
+        {
+          "id": "example:example-eth",
+          "label": "ETH",
+          "lens": "value",
+          "status": "inferred",
+          "assetIds": [
+            "example-eth"
+          ],
+          "evidenceIds": [
+            "assumptions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qa:lp",
+      "label": "QA unsupported LP",
+      "kind": "concentrated-liquidity",
+      "assets": [
+        {
+          "id": "example-eth",
+          "symbol": "ETH",
+          "role": "holding",
+          "valueUsd": 100000
+        }
+      ],
+      "protocol": "Illustrative model",
+      "chainId": 1,
+      "origin": "imported",
+      "observedAt": "2026-10-10T00:00:00Z",
+      "oracle": {
+        "mode": "none",
+        "evidenceIds": [
+          "assumptions"
+        ]
+      },
+      "quotes": [],
+      "evidence": [
+        {
+          "id": "assumptions",
+          "status": "assumed",
+          "claim": "Invented balances and pricing response for model comparison; not an observed address.",
+          "sourceUrl": null
+        }
+      ],
+      "dependencies": [
+        {
+          "id": "example:example-eth",
+          "label": "ETH",
+          "lens": "value",
+          "status": "inferred",
+          "assetIds": [
+            "example-eth"
+          ],
+          "evidenceIds": [
+            "assumptions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qa:unknown",
+      "label": "QA missing price",
+      "kind": "spot",
+      "assets": [
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "role": "holding",
+          "valueUsd": null
+        }
+      ],
+      "protocol": "Illustrative model",
+      "chainId": 1,
+      "origin": "imported",
+      "observedAt": "2026-10-10T00:00:00Z",
+      "oracle": {
+        "mode": "none",
+        "evidenceIds": [
+          "assumptions"
+        ]
+      },
+      "quotes": [],
+      "evidence": [
+        {
+          "id": "assumptions",
+          "status": "assumed",
+          "claim": "Invented balances and pricing response for model comparison; not an observed address.",
+          "sourceUrl": null
+        }
+      ],
+      "dependencies": []
+    }
+  ]
+}

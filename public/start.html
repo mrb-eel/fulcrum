@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fulcrum · Start</title>
+<meta name="description" content="Fulcrum X-rays a DeFi position: what it depends on, what breaks, and whether to exit. Scroll through one real position.">
+<meta name="theme-color" content="#0a0f19"><link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Doto:wght@700;900&family=Martian+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="/xray.css">
+<style>
+  body{background:radial-gradient(ellipse at 66% 45%,#15243f 0%,var(--film) 62%) fixed}
+  .top{position:fixed;left:0;right:0;top:0;background:linear-gradient(var(--film) 55%,rgba(10,15,25,0))!important;border-bottom:0!important}
+  #three{position:fixed;inset:0;z-index:0;cursor:grab}#three:active{cursor:grabbing}
+  #three canvas{display:block;width:100%;height:100%}
+  .veil{position:fixed;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(10,15,25,.94) 0%,rgba(10,15,25,.75) 30%,rgba(10,15,25,0) 52%)}
+  .labels3d{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+  .lbl{position:absolute;left:0;top:0;font:12px/1.3 var(--mono);color:var(--bone);background:rgba(10,15,25,.86);border:1px solid var(--rule-2);padding:3px 7px;white-space:nowrap;border-radius:var(--r)}
+  .lbl b{font-weight:600}.lbl.red{color:#ff9a82;border-color:rgba(255,90,54,.6)}.lbl.blue{color:#a6d9f2;border-color:rgba(124,196,232,.6)}.lbl.amber{color:var(--phosphor);border-color:rgba(242,193,78,.5)}
+  .lbl.layer{background:none;border:0;color:var(--muted)}.lbl.layer b{margin-right:4px}.lbl.layer.on{color:var(--phosphor)}
+  .story{position:relative;z-index:2;pointer-events:none;max-width:none;padding:0}
+  .step{min-height:100vh;display:flex;align-items:center;padding:96px var(--s6) var(--s6);border:0}
+  .card{pointer-events:auto;max-width:470px;opacity:.25;transform:translateY(12px);transition:opacity .5s,transform .5s}
+  .step.active .card{opacity:1;transform:none}
+  .card .kicker{font:13px var(--mono);color:var(--phosphor);margin:0 0 var(--s3)}
+  .card h1{font-size:clamp(34px,4.2vw,54px);line-height:1.05;margin-bottom:var(--s4)}
+  .card h2{font-size:clamp(26px,2.6vw,34px);line-height:1.15;margin-bottom:var(--s4)}
+  .card p{color:var(--bone-2);font-size:17px;line-height:1.55;margin:0 0 var(--s3)}
+  .card .big{font-family:var(--display);font-weight:900;font-size:64px;line-height:1;margin:var(--s3) 0;color:var(--bone)}
+  .scrollcue{font:13px var(--mono);color:var(--muted)!important;margin-top:var(--s5)!important}
+  .vs{display:grid;grid-template-columns:1fr 1.4fr;border-top:1px solid var(--rule-2);margin-top:var(--s3)}
+  .vs div{padding:var(--s2) var(--s3) var(--s2) 0;border-bottom:1px solid var(--rule);font-size:14px;line-height:1.4}
+  .vs div:nth-child(odd){color:var(--muted)}.vs div:nth-child(even){color:var(--bone)}
+  .vs .h{font:12px var(--mono);color:var(--muted)!important;padding-top:var(--s3)}
+  .card.wide{max-width:640px}
+  .veil{transition:background .6s}.dim .veil{background:linear-gradient(90deg,rgba(10,15,25,.97) 0%,rgba(10,15,25,.92) 50%,rgba(10,15,25,.6) 80%)}.dim .labels3d{opacity:0}
+  .rail{position:fixed;right:var(--s5);top:50%;transform:translateY(-50%);z-index:3;display:grid;gap:var(--s2)}
+  .rail button{width:10px;height:10px;border:1px solid var(--muted);background:none;padding:0;border-radius:50%;cursor:pointer}
+  .rail button[aria-current=true]{background:var(--phosphor);border-color:var(--phosphor)}
+  .hint{position:fixed;right:var(--s6);bottom:var(--s4);z-index:2;font:12px var(--mono);color:var(--muted)}
+  @media (max-width:980px){.veil{background:linear-gradient(rgba(10,15,25,.2),rgba(10,15,25,.85))}.step{align-items:flex-end}.card{background:rgba(10,15,25,.85);padding:var(--s4)}}
+  @media (prefers-reduced-motion:reduce){.card{transition:none;opacity:1;transform:none}}
+</style></head>
+<body><div id="chrome"></div>
+<div id="three" role="img" aria-label="3D cutaway of the position: deposit on top, then markets, collateral, issuers, oracles and the chain as stacked layers"></div>
+<div class="veil"></div>
+<main id="main" class="story"></main>
+<nav class="rail" id="rail" aria-label="Story steps"></nav>
+<div class="hint">scroll to continue · drag the model to rotate</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script type="module" src="/start.js"></script>
+</body></html>

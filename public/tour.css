@@ -1,0 +1,32 @@
+:root{--film:#0a0f19;--film-2:#0e1622;--film-3:#142030;--rule:#223149;--rule-2:#2f425e;--bone:#ece4cf;--bone-2:#c9c2b0;--muted:#97a3b3;--phosphor:#f2c14e;--breach:#ff5a36;--s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:24px;--r:2px;--mono:"Martian Mono",ui-monospace,monospace;--display:"Doto","Martian Mono",monospace}
+.top{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:var(--s5);padding:var(--s3) var(--s5);background:rgba(10,15,25,.96);border-bottom:1px solid var(--rule)}
+.wordmark{font-family:var(--display);font-weight:800;font-size:26px;letter-spacing:.02em;text-decoration:none;color:var(--bone)}
+.wordmark b{color:var(--breach)}
+button.btn,a.btn{font:12px var(--mono);color:var(--bone);background:var(--film-3);border:1px solid var(--rule-2);border-radius:var(--r);padding:var(--s2) var(--s3);cursor:pointer;text-decoration:none;display:inline-block}
+.top{flex-wrap:wrap;gap:var(--s4)}
+/* guided tour bar */
+.top{flex-wrap:wrap;gap:var(--s4)}
+.tour{display:flex;flex:1;align-items:center;gap:var(--s4);min-width:0}
+.tour ol{display:flex;list-style:none;margin:0;padding:0;gap:2px;flex:1;min-width:0;overflow-x:auto}
+.tour li{flex:1;min-width:120px}
+.tour li a{display:flex;gap:var(--s2);align-items:center;padding:var(--s2);text-decoration:none;border-bottom:2px solid var(--rule-2);color:var(--muted)}
+.tour li.done a{border-bottom-color:var(--bone-2)}
+.tour li[aria-current] a{border-bottom-color:var(--phosphor);color:var(--bone);background:var(--film-3)}
+.tour .n{font:600 13px var(--mono);width:22px;height:22px;display:grid;place-items:center;border:1px solid currentColor;border-radius:var(--r);flex:none}
+.tour b{display:block;font-size:13px;font-weight:700}.tour small{display:block;font-size:11px;color:var(--muted);white-space:nowrap}
+.tour-nav{display:flex;gap:var(--s2);flex:none}
+.tour-nav .next{background:var(--phosphor);color:var(--film);border-color:var(--phosphor);font-weight:600}
+@media (max-width:980px){.tour{flex-direction:column;align-items:stretch}.tour small{display:none}}
+/* ---------- identity: the radiograph plate ---------- */
+.wordmark{display:inline-flex;align-items:center;gap:var(--s2);font-size:24px}
+.wordmark b{display:none}
+.mark{width:26px;height:26px;color:var(--bone);flex:none}
+.plate{font:11px var(--mono);letter-spacing:.08em;color:var(--muted);white-space:nowrap;border:1px solid var(--rule-2);padding:2px var(--s2)}
+/* the tour as a film strip */
+.tour ol{padding:6px 0;background:
+  radial-gradient(circle,var(--film) 1.6px,transparent 2px) 0 0/14px 6px repeat-x,
+  radial-gradient(circle,var(--film) 1.6px,transparent 2px) 0 100%/14px 6px repeat-x,var(--film-3)}
+.tour li a{border-bottom:0;border-left:1px solid var(--film)}
+.tour li[aria-current] a{background:var(--bone);color:var(--film)}.tour li[aria-current] small{color:var(--film-3)}
+.tour li.done a{color:var(--bone-2)}
+@media (max-width:980px){.plate{display:none}}

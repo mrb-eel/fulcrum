@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fulcrum · X-ray viewer</title>
+<meta name="description" content="Full-screen X-ray of one vault: pick a scenario, click any market to see what it depends on.">
+<meta name="theme-color" content="#0a0f19"><link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Doto:wght@700;900&family=Martian+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="/xray.css">
+<style>
+  body{display:grid;grid-template-rows:auto auto 1fr auto;height:100vh;overflow:hidden}
+  .bar{display:flex;gap:var(--s3);align-items:end;flex-wrap:wrap;padding:var(--s3) var(--s5);border-bottom:1px solid var(--rule);background:var(--film-2)}
+  .bar label{min-width:220px}
+  .add{display:flex;gap:var(--s2);align-items:end;flex-wrap:wrap;margin-left:auto}.add label{min-width:300px}.add #addmsg{max-width:280px}
+  body.dragging .plate{outline:2px dashed var(--phosphor);outline-offset:-8px}
+  .presets{display:flex;gap:var(--s2);flex-wrap:wrap}
+  .presets button{font:13px var(--body);color:var(--bone-2);background:var(--film);border:1px solid var(--rule-2);border-radius:var(--r);padding:var(--s2) var(--s3);cursor:pointer}
+  .presets button[aria-pressed=true]{background:var(--bone);color:var(--film);border-color:var(--bone)}
+  .light{display:grid;grid-template-columns:minmax(0,1fr) 360px;min-height:0}
+  .plate{overflow:auto;padding:var(--s5);background:radial-gradient(ellipse at 50% 40%,#13203a 0%,var(--film) 70%)}
+  .plate .xcell{font-size:14px;cursor:pointer;min-height:64px}
+  .plate .xcell:hover{outline:1px solid var(--phosphor);outline-offset:-1px}
+  .plate .xcell.sel{outline:2px solid var(--phosphor);outline-offset:-2px}
+  .plate .xhead{font-size:14px;flex-basis:150px}
+  .side{border-left:1px solid var(--rule);overflow:auto;padding:var(--s5);background:var(--film-2)}
+  .side dl{display:grid;grid-template-columns:auto 1fr;gap:var(--s2) var(--s3);font-size:14px;margin:var(--s3) 0}
+  .side dt{color:var(--muted)}.side dd{margin:0;text-align:right;font-family:var(--mono);font-size:13px}
+  .answer{display:flex;gap:var(--s5);align-items:center;padding:var(--s3) var(--s5);border-top:1px solid var(--rule);background:var(--film-2)}
+  .answer .word{font-family:var(--display);font-weight:900;font-size:56px;line-height:1;margin:0;min-width:200px}
+  .answer p{margin:0;font-size:17px;max-width:90ch}
+  @media (max-width:980px){body{height:auto;overflow:auto}.light{grid-template-columns:1fr}.side{border-left:0;border-top:1px solid var(--rule)}}
+</style></head>
+<body><div id="chrome"></div>
+<div class="bar">
+  <label>Vault<select id="vault"></select></label>
+  <div><div class="small" style="margin-bottom:var(--s1)">Scenario</div><div class="presets" id="presets"></div></div>
+  <form class="add" id="add"><label>Or X-ray any Morpho vault<input id="addr" placeholder="0x… vault address" autocomplete="off" spellcheck="false"></label><button class="btn" type="submit">X-ray it</button><label class="btn" for="file" tabindex="0">Load vault JSON</label><input type="file" id="file" accept=".json,application/json" hidden><span class="small" id="addmsg" role="status"></span></form>
+</div>
+<div class="light">
+  <div class="plate"><div class="xsec" id="xsec"></div><p class="small" style="margin-top:var(--s3)">Click a market for details. Red: the oracle cannot observe a depeg. Blue: it can. Yellow: hit by the shock.</p></div>
+  <aside class="side" id="side"><p class="muted">Select a market for details.</p></aside>
+</div>
+<div class="answer" id="answer"><div class="word">…</div><p></p></div>
+<script type="module">
+import { $, esc, usd, usdC, pct, range, api, header } from '/xray.js';
+$('#chrome').innerHTML = header('X-ray viewer');
+let id = new URLSearchParams(location.search).get('id') || 'steakhouse-usdc', report, sel = null, preset = 0, presets = [];
+
+function buildPresets(model) {
+  const deps = model.dependencies, out = [];
+  for (const fam of ['BTC', 'ETH']) if (deps.some(d => d.id === `family:${fam}`)) {
+    out.push({ label: `${fam} -35%, instant gap`, body: { incident: 'price-fall', targetId: `family:${fam}`, collateralShock: .35, path: 'gap', recoveryDiscount: .05 } });
+    out.push({ label: `${fam} -35%, gradual`, body: { incident: 'price-fall', targetId: `family:${fam}`, collateralShock: .35, path: 'gradual', recoveryDiscount: .02 } });
+  }
+  deps.filter(d => d.kind === 'collateral' && d.exposure / model.total > .03).slice(0, 4).forEach(d =>
+    out.push({ label: `${d.label} depeg -30%, in progress`, body: { incident: 'depeg', targetId: d.id, collateralShock: .3, path: 'gradual', recoveryDiscount: .02, happening: true } }));
+  return out;
+}
+const see = { sees: ['good', 'yes'], rate: ['bad', 'no, issuer rate'], none: ['bad', 'no'], unverified: ['meh', 'unverified'], unknown: ['meh', 'unknown'], 'n/a': ['', 'n/a'] };
+function draw() {
+  const rows = report.result.rows, ms = report.model.markets.filter(x => x.weight >= .01).sort((a, b) => b.allocated - a.allocated);
+  const r = x => rows.find(y => y.id === x.id), hit = x => r(x)?.affected && r(x).shock > 0;
+  const layer = (name, cell) => `<div class="xrow"><div class="xhead">${name}</div>${ms.map(x => { const [c, h] = cell(x); return `<div class="xcell ${c} ${sel === x.id ? 'sel' : ''}" data-id="${esc(x.id)}" tabindex="0" style="flex-grow:${Math.max(.6, x.weight * 10)}">${h}</div>`; }).join('')}</div>`;
+  $('#xsec').innerHTML = [
+    layer('Market', x => [hit(x) ? 'hit' : '', `<b>${esc(x.label)}</b><small>${pct(x.weight, 0)} of the vault</small>`]),
+    layer('Collateral', x => ['', esc(x.token?.kind ?? 'not in registry')]),
+    layer('Issuer / custodian', x => ['', esc(x.token?.issuer ?? 'unknown')]),
+    layer('Oracle reads', x => ['', `<span class="mono" style="font-size:12px">${esc(x.oracle?.inputs.map(i => i.description ?? '?').join(' x ') || (x.oracle?.vault ? 'vault rate only' : "couldn't decode"))}</span>`]),
+    layer('Oracle sees depeg', x => see[x.sight.peg.state] ?? ['', x.sight.peg.state]),
+    layer('Scenario loss', x => { const v = r(x)?.incidentUsd; return [v?.high > 0 ? 'bad' : '', v ? range(v) : '-']; })].join('');
+  const d = report.result.decision;
+  $('#answer').innerHTML = `<div><p class="report-label">Impression</p><div class="word" style="color:${d.verdict === 'EXIT' ? 'var(--breach)' : d.verdict === 'STAY' ? 'var(--sound)' : 'var(--phosphor)'}">${esc(d.verdict)}</div></div><div><p class="report-label">Finding</p><p>${esc(d.headline)}</p></div>`;
+  side();
+}
+function side() {
+  const m = report.model.markets.find(x => x.id === sel), r = report.result.rows.find(x => x.id === sel);
+  if (!m) { $('#side').innerHTML = `<h2 style="font-size:20px">${esc(report.model.name)}</h2><dl><dt>Size</dt><dd>${usdC(report.model.total * report.model.usdPrice)}</dd><dt>Markets</dt><dd>${report.model.markets.length}</dd><dt>Borrowers</dt><dd>${report.model.borrowerCount.toLocaleString('en-US')}</dd><dt>Net APY</dt><dd>${pct(report.model.netApy, 2)}</dd><dt>Scenario loss on $1M</dt><dd>${range(report.result.incidentUsd)}</dd></dl><p class="muted">Select a market for details.</p>`; return; }
+  $('#side').innerHTML = `<h2 style="font-size:20px">${esc(m.label)} market</h2>
+    <dl><dt>Allocation</dt><dd>${pct(m.weight)}</dd><dt>LLTV</dt><dd>${pct(m.lltv)}</dd><dt>Borrowers</dt><dd>${m.borrowerCount}</dd>
+    <dt>Liquidation incentive</dt><dd>${pct(m.lif - 1)}</dd><dt>Scenario loss</dt><dd>${range(r.incidentUsd)}</dd><dt>Withdrawable</dt><dd>${usdC(r.withdrawable * report.model.usdPrice)}</dd></dl>
+    <h3>Issuer / custodian</h3><p>${esc(m.token?.issuer ?? 'Not in registry')}${m.token ? `. ${esc(m.token.role)}. <a href="${esc(m.token.source)}" target="_blank" rel="noreferrer">source</a>` : ''}</p>
+    <h3>Oracle</h3><p class="mono" style="font-size:12px">${esc(m.oracle?.address ?? '')}</p><p>${esc(m.sight.peg.reason)}</p>
+    <h3>Oracle response</h3><p>${esc(r.response.reason)}</p>${r.drain > 0 ? `<p style="color:var(--breach)">The oracle cannot see the depeg, so ${usdC(m.liquidity * report.model.usdPrice)} of market liquidity can be borrowed against mispriced collateral.</p>` : ''}
+    <p><a href="/vault.html?id=${esc(id)}">Full vault analysis</a></p>`;
+}
+$('#xsec').addEventListener('click', e => { const c = e.target.closest('[data-id]'); if (c) { sel = c.dataset.id; draw(); } });
+$('#xsec').addEventListener('keydown', e => { if (e.key === 'Enter') { const c = e.target.closest('[data-id]'); if (c) { sel = c.dataset.id; draw(); } } });
+async function evalPreset(i) {
+  preset = i; $('#presets').querySelectorAll('button').forEach((b, j) => b.setAttribute('aria-pressed', String(j === i)));
+  report = await api('/api/vault/evaluate', { id, ...presets[i].body }); draw();
+}
+$('#presets').addEventListener('click', e => { const b = e.target.closest('button'); if (b) evalPreset(Number(b.dataset.i)); });
+async function load() {
+  report = await api(`/api/vault?id=${encodeURIComponent(id)}`); sel = null;
+  presets = buildPresets(report.model);
+  $('#presets').innerHTML = presets.map((p, i) => `<button type="button" data-i="${i}">${esc(p.label)}</button>`).join('');
+  await evalPreset(Math.min(preset, presets.length - 1));
+}
+async function addVault(request, what) {
+  $('#addmsg').textContent = what === 'capture' ? 'Capturing every market, borrower and oracle on-chain. This takes 10 to 40 seconds.' : 'Checking the packet fingerprint and reading its oracles…';
+  try {
+    const r = await request;
+    if (![...$('#vault').options].some(o => o.value === r.id)) $('#vault').insertAdjacentHTML('beforeend', `<option value="${esc(r.id)}">${esc(r.name)} (added)</option>`);
+    $('#vault').value = r.id; id = r.id; preset = 0; history.replaceState(null, '', `?id=${id}`); await load();
+    $('#addmsg').textContent = `Loaded ${r.name}${r.oracleReads ? '' : ' (no live oracle reads, oracle responses are assumptions)'}.`;
+  } catch (err) { $('#addmsg').textContent = `Could not load it: ${err.message}`; }
+}
+$('#add').addEventListener('submit', e => { e.preventDefault(); const a = $('#addr').value.trim(); if (a) addVault(api('/api/vault/capture', { address: a, chainId: 1 }), 'capture'); });
+const readFile = f => f.text().then(t => api('/api/vault/import', JSON.parse(t)));
+$('#file').addEventListener('change', e => { const f = e.target.files[0]; if (f) addVault(readFile(f), 'import'); });
+addEventListener('dragover', e => { e.preventDefault(); document.body.classList.add('dragging'); });
+addEventListener('dragleave', e => { if (!e.relatedTarget) document.body.classList.remove('dragging'); });
+addEventListener('drop', e => { e.preventDefault(); document.body.classList.remove('dragging'); const f = e.dataTransfer.files[0]; if (f) addVault(readFile(f), 'import'); });
+const b = await api('/api/book');
+$('#vault').innerHTML = b.pockets.map(p => `<option value="${esc(p.id)}">${esc(p.name)}</option>`).join(''); $('#vault').value = id;
+$('#vault').addEventListener('change', async e => { id = e.target.value; history.replaceState(null, '', `?id=${id}`); preset = 0; await load(); });
+await load();
+</script></body></html>

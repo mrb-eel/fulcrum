@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fulcrum · How it works</title>
+<meta name="description" content="How Fulcrum finds what a DeFi position depends on, estimates the loss if something breaks, and decides stay or leave.">
+<meta name="theme-color" content="#0a0f19"><link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Doto:wght@700;900&family=Martian+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="/xray.css">
+<style>
+  html{scroll-snap-type:y mandatory}
+  .slide{min-height:calc(100vh - 57px);scroll-snap-align:start;display:grid;align-content:center;gap:var(--s5);padding:var(--s7) var(--s5);max-width:1240px;margin:0 auto;border-top:1px solid var(--rule)}
+  .slide:first-of-type{border-top:0}
+  .slide h2{font-size:clamp(28px,3.6vw,44px);line-height:1.15;max-width:26ch}
+  .lede{font-size:clamp(17px,1.6vw,20px);max-width:64ch;color:var(--bone-2);margin:0}
+  .title-word{font-family:var(--display);font-weight:900;font-size:clamp(72px,13vw,180px);line-height:.85;margin:0}
+  .title-word{display:flex;align-items:center;gap:.18em}.bigmark .mark{width:.82em;height:.82em;color:var(--bone)}
+  html{scroll-padding-top:72px}
+  .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--s4)}
+  .card{background:var(--film-2);border:1px solid var(--rule);padding:var(--s4)}
+  .card h3{margin-bottom:var(--s2)}.card p{margin:0;color:var(--bone-2);font-size:15px}
+  .stat{font-family:var(--mono);font-weight:600;font-size:clamp(30px,3.6vw,44px);line-height:1.1;margin:0 0 var(--s2)}
+  .stat.hot{color:var(--breach)}.stat.ok{color:var(--sound)}.stat.amb{color:var(--phosphor)}
+  .eq{font-family:var(--mono);font-size:14px;background:var(--film);border:1px solid var(--rule-2);padding:var(--s3) var(--s4);overflow-x:auto;white-space:nowrap}
+  .pager{position:fixed;right:var(--s4);bottom:var(--s4);font:12px var(--mono);color:var(--muted);background:var(--film-2);border:1px solid var(--rule);padding:var(--s1) var(--s2);z-index:4}
+</style></head>
+<body><div id="chrome"></div>
+<main id="main" style="max-width:none;padding:0">
+
+<section class="slide" data-n="1">
+  <p class="eyebrow">Blockchain Student Association hackathon, Belem Capital challenge</p>
+  <h1 class="title-word"><span class="bigmark" id="bigmark"></span>fulcrum</h1>
+  <p class="lede">My project for the Belem Capital DeFi risk dependency challenge. You give it a DeFi position, it digs down to what that position actually depends on (markets, collateral, custodians, oracles), estimates what you'd lose if one of those breaks, and tells you if it's worth pulling out.</p>
+  <div class="grid3" id="cover-stats"></div>
+</section>
+
+<section class="slide" data-n="2">
+  <p class="eyebrow">The problem</p>
+  <h2>Belem's example: a book split into 10 pockets, one gets hit. Stay or leave?</h2>
+  <p class="lede">Leaving costs something you know (slippage, lost yield). Staying costs something you don't. The brief asks for a tool that puts numbers on both sides using real on-chain data, so the decision isn't just gut feeling at 3am.</p>
+  <div class="grid3">
+    <div class="card"><h3>1. Find what it depends on</h3><p>Markets, borrowers, oracles and token issuers, pulled automatically.</p></div>
+    <div class="card"><h3>2. Estimate the loss</h3><p>Borrower by borrower, then the vault's share, then yours.</p></div>
+    <div class="card"><h3>3. Stay or leave</h3><p>Compare the average loss with what it costs to leave.</p></div>
+  </div>
+</section>
+
+<section class="slide" data-n="3">
+  <p class="eyebrow">Step 1: getting the data</p>
+  <h2>Three data sources, all saved.</h2>
+  <div class="grid3">
+    <div class="card"><h3>Morpho's API</h3><p>For each vault: which markets it lends to, how much, and every single borrower in those markets, paged until the borrower shares add up to the market total.</p><p class="mono" id="cap-1" style="margin-top:var(--s3)"></p></div>
+    <div class="card"><h3>Ethereum itself</h3><p>Every oracle contract is called directly to see which price feeds it uses, and ask each feed for its name. All at the same block, cross-checked against Morpho's API.</p><p class="mono" id="cap-2" style="margin-top:var(--s3)"></p></div>
+    <div class="card"><h3>Price history</h3><p>Daily BTC and ETH prices from Bitstamp, to count how often big drops actually happened.</p><p class="mono" id="cap-3" style="margin-top:var(--s3)"></p></div>
+  </div>
+  <p class="small">Everything gets saved with a SHA-256 hash, so the demo runs offline and you can check nothing changed. One script grabs fresh data.</p>
+</section>
+
+<section class="slide" data-n="4">
+  <p class="eyebrow">Step 2: dependencies</p>
+  <h2>One deposit in Steakhouse USDC, layer by layer.</h2>
+  <div class="layers" id="layers"></div>
+  <p class="lede">The issuer/custodian part is a small list I wrote by hand, with a source for each token. The rest comes straight from the chain.</p>
+</section>
+
+<section class="slide" data-n="5">
+  <p class="eyebrow">Step 2: the main finding</p>
+  <h2>Some oracles can't see the thing that would hurt lenders.</h2>
+  <p class="lede">A lending market only liquidates people when its oracle says the collateral dropped. So I checked what every oracle actually reads. If cbBTC depegs but the oracle only reads BTC/USD, the market thinks everything is fine: nobody gets liquidated, and people can even deposit the cheap token and borrow against it.</p>
+  <div class="grid3">
+    <div class="card"><span class="flag sees">Can see it</span><p style="margin-top:var(--s2)">There's a feed for the token itself, like <span class="mono">WBTC / BTC</span>.</p></div>
+    <div class="card"><span class="flag rate">Only the issuer rate</span><p style="margin-top:var(--s2)">Like <span class="mono">weETH/ETH exchange rate</span>. That's what the protocol says it's worth, not what it trades at.</p></div>
+    <div class="card"><span class="flag none">Can't see it</span><p style="margin-top:var(--s2)">Nothing about the token at all, like cbBTC priced with <span class="mono">BTC / USD</span> only.</p></div>
+  </div>
+  <div class="table-wrap"><table><thead><tr><th>Blind spot</th><th>Vaults</th><th class="n">% of book</th></tr></thead><tbody id="blind"></tbody></table></div>
+</section>
+
+<section class="slide" data-n="6">
+  <p class="eyebrow">Step 3: estimating the loss</p>
+  <h2>Borrower by borrower.</h2>
+  <div class="eq">loss on a borrower = max(0, debt - collateral x (1 - drop) x (1 - selling discount))</div>
+  <div class="eq">liquidators step in only if  bonus x (1 - selling discount) >= 1,  bonus = 1 / (0.3 x LLTV + 0.7)</div>
+  <div class="eq">oracle can't see a depeg: people borrow the market's spare cash against the cheap token</div>
+  <p class="lede">Two cases. "All at once": the price gaps down before anyone can liquidate. "Slowly": liquidations happen in time, but only if the oracle sees the drop and liquidators still make money selling the collateral. One borrower's extra collateral can't cover someone else's hole. Then the vault takes its share of each market's loss, and you take your share of the vault.</p>
+  <div class="grid3" id="impact"></div>
+</section>
+
+<section class="slide" data-n="7">
+  <p class="eyebrow">Step 4: the decision</p>
+  <h2>Average loss vs. cost of leaving.</h2>
+  <div class="eq">cost of leaving = interest you stop earning while you're out + gas</div>
+  <div class="eq">chance = how often a drop this big happened before (or your own guess)</div>
+  <div class="eq">leaving is worth it if  chance > cost of leaving / loss you'd avoid</div>
+  <div class="grid3" id="decision"></div>
+  <p class="lede" id="decision-line"></p>
+</section>
+
+<section class="slide" data-n="8">
+  <p class="eyebrow">Step 5: the whole book</p>
+  <h2>10 vaults, but a lot of the same dependencies.</h2>
+  <div class="table-wrap"><table><thead><tr><th>Shared dependency</th><th>Vaults</th><th class="n">% of book</th></tr></thead><tbody id="shared"></tbody></table></div>
+  <p class="lede" id="book-line"></p>
+</section>
+
+<section class="slide" data-n="9">
+  <p class="eyebrow">Compared with a usual risk dashboard</p>
+  <h2>The answer comes from the contracts, in dollars.</h2>
+  <div class="table-wrap"><table><thead><tr><th>Usual approach</th><th>Fulcrum</th></tr></thead><tbody>
+    <tr><td class="muted">A 0 to 100 risk score per protocol</td><td>Dollar loss on your position, computed for every borrower in every market</td></tr>
+    <tr><td class="muted">"Oracle: Chainlink" as a label</td><td>Every oracle contract and feed read on-chain at one block, classified by whether it can see a depeg</td></tr>
+    <tr><td class="muted">A probability typed in by hand</td><td>Counted from daily BTC and ETH prices, or the break-even probability when there is no history</td></tr>
+    <tr><td class="muted">A fixed liquidation threshold</td><td>Morpho's liquidation incentive decides whether liquidators actually show up</td></tr>
+    <tr><td class="muted">One protocol</td><td>Morpho borrower by borrower, plus the oracle scan on Aave v3 and Spark</td></tr>
+    <tr><td class="muted">Each position scored on its own</td><td>One shock applied to a book of 10, with the dependencies they share</td></tr>
+    <tr><td class="muted">"High risk"</td><td>Stay or exit, plus the probability that would flip the answer</td></tr>
+  </tbody></table></div>
+</section>
+
+<section class="slide" data-n="10">
+  <p class="eyebrow">Demo</p>
+  <h2>Click around.</h2>
+  <div class="grid3">
+    <a class="card" href="/book.html" style="text-decoration:none"><h3>Book</h3><p>Pick a scenario, run it on all 10 vaults, see which ones you should leave.</p></a>
+    <a class="card" href="/vault.html" style="text-decoration:none"><h3>Vault</h3><p>One vault in detail: what each oracle sees, where the loss comes from, every borrower. Press F for the big full-screen answer.</p></a>
+    <a class="card" href="/case.html" style="text-decoration:none"><h3>PT case</h3><p>My first case, the Pendle PT example from the brief: a leveraged PT-sUSDe loan with real exit quotes.</p></a>
+  </div>
+</section>
+
+<section class="slide" data-n="11" style="min-height:auto">
+  <p class="eyebrow">Not covered yet</p>
+  <ul class="small" style="columns:2;column-gap:var(--s6)">
+    <li>Borrower-level losses for Morpho vaults only; Aave v3 and Spark get the oracle scan, not the loss model.</li>
+    <li>Issuers/custodians are a hand-written list.</li>
+    <li>No model of how much DEX liquidity liquidators have.</li>
+    <li>Probabilities come from past prices, and there are none for depegs.</li>
+    <li>The $1M per vault is made up.</li>
+  </ul>
+</section>
+</main>
+<div class="pager" id="pager">1 / 11</div>
+<script type="module" src="/how.js"></script></body></html>

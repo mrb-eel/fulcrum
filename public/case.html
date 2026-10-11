@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0f19" />
+  <meta name="description" content="Follow a public PT-sUSDe / USDC loan on Morpho. Test price shocks, inspect the oracle contracts, and compare three quoted sale sizes." />
+  <meta property="og:title" content="Fulcrum — PT-sUSDe position study" />
+  <meta property="og:description" content="A public Morpho loan, its price feeds, and the cost of selling. Inspect the evidence and change the assumptions." />
+  <meta property="og:type" content="website" />
+  <title>Fulcrum · PT case</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="stylesheet" href="/styles.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Doto:wght@700;900&family=Martian+Mono:wght@400;600&display=swap"><link rel="stylesheet" href="/legacy-theme.css"><link rel="stylesheet" href="/tour.css"></head>
+<body><div id="tour-top" class="top" style="position:static"></div><script type="module">import { tourBar, MARK } from "/xray.js"; document.getElementById("tour-top").innerHTML = `<a class="wordmark" href="/">${MARK}<span>fulcrum</span></a>` + tourBar('PT case');</script>
+  <a class="skip" href="#stress">Skip to stress test</a>
+  <header class="topbar">
+    <a href="/" class="wordmark" aria-label="Fulcrum position workspace">fulcrum<span>.</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#overview">Position</a><a href="#stress">Stress test</a><a href="#exits">Exit costs</a><a href="#evidence-section">Evidence</a>
+    </nav>
+    <button id="live-refresh" class="refresh" type="button"><span aria-hidden="true">↻</span> Refresh data</button>
+  </header>
+  <main>
+    <div class="data-strip"><span id="data-badge" class="badge">Opening saved case</span><span id="data-time"></span><button id="restore" type="button" hidden>Return to saved case</button></div>
+    <div id="status" class="notice" role="status" aria-live="polite">Loading the position and its sources…</div>
+    <noscript>This study needs JavaScript to run the calculations. The saved evidence and methodology are available in the project files.</noscript>
+
+    <div id="app" hidden>
+      <section id="overview">
+        <div class="intro">
+          <div><p class="case-label">Position study <span>/</span> Ethereum</p><h1>PT-sUSDe,<br />under stress.</h1><p class="intro-copy">Follow the collateral behind this public Morpho loan. Test a price fall, then see what it costs to sell.</p></div>
+          <div class="case-id"><span>MORPHO × PENDLE</span><b>PT-sUSDe / USDC</b><a id="position-link" target="_blank" rel="noreferrer">View public address ↗</a><small>Matures <span id="maturity">26 Nov 2026</span></small></div>
+        </div>
+        <div id="metrics" class="metrics" aria-label="Position balances"></div>
+        <div class="map-layout">
+          <div class="map-panel">
+            <div class="map-head"><h2>Inside the position</h2><span>Choose a part to inspect it</span></div>
+            <div class="lens-tabs" role="group" aria-label="Dependency view"><button data-lens="all" aria-pressed="true">All paths</button><button data-lens="market" aria-pressed="false">Selling the PT</button><button data-lens="loan" aria-pressed="false">Valuing the loan</button></div>
+            <div id="dependency-map" class="dependency-map" data-lens="all"></div>
+            <div class="map-legend"><span><i class="legend-line market-line"></i>Sale route</span><span><i class="legend-line loan-line"></i>Lending valuation</span><span><i class="legend-line dashed"></i>Conditional backup</span></div>
+          </div>
+          <aside id="inspector" class="inspector" aria-live="polite"></aside>
+        </div>
+        <div class="finding"><p><strong id="finding-title">The lender’s price does not follow the sale price.</strong><span id="finding-copy">The active feed uses a fixed annual discount. A fall in the Pendle market can hurt the position before it changes the lender’s valuation.</span></p><a href="#stress">Try a price shock <span aria-hidden="true">↓</span></a></div>
+      </section>
+
+      <section id="stress" class="stress-section">
+        <div class="section-head"><div><p class="section-index">01 / Stress test</p><h2>What would a price fall cost?</h2><p>Change either price below. The chart shows the loss under those assumptions.</p></div><button id="reset" class="quiet-button" type="button" aria-label="Reset scenario">Reset <span aria-hidden="true">↺</span></button></div>
+        <div class="stress-layout">
+          <div class="controls">
+            <div class="control"><label for="underlying">Underlying value falls</label><output for="underlying" id="underlying-value">0.50%</output><input id="underlying" type="range" min="0" max="10" step="0.25" value="0.5" /><p>A lower USD value for the sUSDe reference.</p></div>
+            <div class="control"><label for="exit">Selling becomes more expensive</label><output for="exit" id="exit-value">1.00%</output><input id="exit" type="range" min="0" max="10" step="0.25" value="1" /><p>An extra discount on the PT’s reference conversion rate.</p></div>
+            <div class="control limit-control"><label for="loss-limit">Your equity-loss limit</label><output for="loss-limit" id="loss-limit-value">10%</output><input id="loss-limit" type="range" min="1" max="50" step="1" value="10" /><p>Equity is what remains after the USDC debt.</p></div>
+            <div class="presets"><span>Try a scenario</span><button type="button" data-preset="0,3">Exit discount only</button><button type="button" data-preset="2,3">Both prices fall</button></div>
+          </div>
+          <div class="chart-panel">
+            <div class="result-row">
+              <div><span>Modelled equity loss</span><strong id="economic-loss">—</strong><small id="economic-detail"></small></div>
+              <div class="health"><span>Lending health</span><strong id="health-factor">—</strong><small id="health-detail"></small></div>
+            </div>
+            <div class="chart-title"><span>Equity loss as the exit discount grows</span><span class="chart-key"><i></i>Selected scenario</span></div>
+            <div id="loss-chart" class="loss-chart"></div>
+            <div id="critical" class="threshold-note"></div>
+          </div>
+        </div>
+        <div class="assumptions"><span>How to read this</span><p id="assumption-copy">The loan’s current pricing rule is held fixed during the shock. This is an instant “what if”, not a prediction over time. Sale costs and loan repayment are considered separately below.</p><details><summary>Show the calculation</summary><div id="formula"></div></details></div>
+      </section>
+
+      <section id="exits" class="exit-section">
+        <div class="section-head"><div><p class="section-index">02 / Exit costs</p><h2>Compare the sale sizes.</h2><p>Keep the position, or sell 25%, 50% or all of it.</p></div></div>
+        <div class="decision-layout">
+          <div>
+            <div class="table-wrap"><table><caption class="sr-only">Cost of holding versus quoted partial or full sales</caption><thead><tr><th scope="col">Action</th><th scope="col">Sale cost*</th><th scope="col">Loss left in this scenario</th><th scope="col">Break-even chance**</th></tr></thead><tbody id="decision"></tbody></table></div>
+            <p class="table-note">* Reference value minus quoted USDC proceeds, converted at the snapshot’s USDC/USD rate. Excludes gas, financing, loan unwind and foregone yield.</p>
+            <p class="table-note">** The chance of this scenario above which that sale has a lower modelled cost than holding. It does not mean that action is best among all the options.</p>
+          </div>
+          <aside class="decision-note"><p class="note-label">Cost comparison</p><h3>Would selling help?</h3><p id="decision-summary"></p><label class="probability-toggle"><input id="use-probability" type="checkbox" /> Compare using my own estimate</label><div id="probability-controls" hidden><label for="probability">Chance of this scenario <output id="probability-value">10%</output></label><input id="probability" type="range" min="0" max="100" value="10" step="1" /><p id="ranking"></p></div></aside>
+        </div>
+        <p class="execution-note"><b>Before treating this as a trade:</b> the quotes cover selling PT, not removing pledged collateral from Morpho. A funded repayment or a tested atomic unwind is still needed. These are indicative comparisons.</p>
+      </section>
+
+      <section id="evidence-section" class="evidence-section">
+        <div class="evidence-heading"><div><p class="section-index">03 / Evidence</p><h2>Sources and calculations.</h2><p>Open a finding to see its source, inputs and limits.</p></div><button id="download" class="outline-button" type="button">Download evidence ↓</button></div>
+        <div id="evidence-meta" class="evidence-meta"></div><div id="evidence" class="evidence-list"></div>
+        <details class="scope"><summary>What this study covers—and what still needs work</summary><p>One public Ethereum position. It is not identified as Belem Capital’s portfolio. The contract trace covers the selected oracle configuration. It does not audit every Ethena, custody, exchange or governance dependency.</p><p>The shocks are assumptions. No event probability is estimated. The model does not simulate interest accrual, liquidation auctions, an oracle switch over time, or an executable loan unwind.</p></details>
+      </section>
+    </div>
+  </main>
+  <footer><span class="wordmark">fulcrum<span>.</span></span><p>Belem Capital challenge · Blockchain Student Association hackathon<br />Public case study</p><a href="#overview">Back to top ↑</a></footer>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

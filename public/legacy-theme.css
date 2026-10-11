@@ -1,0 +1,35 @@
+/* Brings the PT case and the workspace onto the radiograph palette without rewriting them. */
+:root{--paper:#0a0f19;--surface:#0e1622;--ink:#ece4cf;--muted:#97a3b3;--line:#223149;--orange:#ff5a36;--orange-soft:#2a1a16;--accent:#ff5a36;
+  --map:#070b13;--map-text:#ece4cf;--sale:#f2c14e;--loan:#7cc4e8;--dark:#070b13;
+  --font:"Atkinson Hyperlegible",system-ui,sans-serif;--display:"Atkinson Hyperlegible",system-ui,sans-serif;--mono:"Martian Mono",ui-monospace,monospace;--radius:2px;color-scheme:dark}
+body{background:#0a0f19;color:#ece4cf}
+.wordmark,.brand{font-family:"Doto","Martian Mono",monospace!important;font-weight:800;letter-spacing:.02em!important;color:#ece4cf}
+input,select,textarea,button{background:#0a0f19;color:#ece4cf;border-color:#2f425e}
+table th{background:#0e1622}
+button:hover,.button:hover{background:#142030}
+#notice{background:#0e1622;border-left-color:#7cc4e8;color:#c9c2b0}#notice.error{background:#2a1a16}
+tr.selected{background:#142030}
+.scenario,.exit-results,.bar-track{background:#0e1622}
+.blocker{background:#2a1a16}
+.heatmap-grid button{background:#142030;color:#c9c2b0}.heatmap-grid button.crossed{background:#5a2416;color:#ffd2c4}
+.scan-map .dep-node.active .dep-body{fill:#f2c14e}
+.refresh:hover{background:#142030}
+.notice.warning{background:#2a1a16;border-color:#ff5a36;color:#ffd2c4}
+.chart-grid{stroke:#223149}
+.notice,.finding{background:#0e1622;color:#c9c2b0}
+#notice,.blocker,.notice{border-left:1px solid #2f425e!important;border:1px solid #2f425e}
+.tabs button,[role=tab]{border-bottom-width:1px!important}
+.topbar > .wordmark,.topbar .wordmark:not(#tour-top *),body > header > .brand{display:none!important}
+#tour-top .wordmark,#tour-top .wordmark span{color:#ece4cf!important;font-family:"Doto","Martian Mono",monospace!important}
+/* PT case: remaining light panels from the old theme */
+#formula,.decision-note,.raw-evidence pre,footer,.finding,.notice{background:#0e1622!important;color:#c9c2b0!important}
+tbody .preferred,tbody .preferred td{background:#1d2a3e!important;color:#ece4cf!important}
+tbody .preferred td *{color:inherit!important;opacity:1!important}
+.mini-bar{background:#223149!important}
+.outline-button:hover,.refresh:hover{background:#142030!important}
+.map-node.selected .node-body{fill:#f2c14e}.map-node.selected .node-title{fill:#0a0f19}
+.no-link text{fill:#ff9a82}
+.decision-note *,#formula *{color:inherit}
+.decision-note input[type=range]{accent-color:#ff5a36}
+#tour-top{position:sticky!important;top:0;z-index:30}.topbar{position:static!important}
+.decision-note p,.decision-note label,.decision-note span{color:#c9c2b0!important}

@@ -1,0 +1,493 @@
+{
+  "snapshot": {
+    "schemaVersion": "fulcrum-snapshot/v1",
+    "caseDefinition": {
+      "name": "Leveraged PT-sUSDe / USDC position",
+      "chainId": 1,
+      "position": "0xdf81987465681D0515058fe0A47A3bD174012730",
+      "marketId": "0x5613b170ded221c588b6e9637b910f49e5508680ceede207f44aa72e5c46cb05",
+      "pendleMarket": "0x47ad2cd1dd15739a7a035b9d3b7828d916fef77e",
+      "expiry": "2026-11-26T00:00:00Z"
+    },
+    "observedAt": "2026-10-10T13:16:07.568Z",
+    "rawInputs": {
+      "position": {
+        "user": {
+          "address": "0xdf81987465681D0515058fe0A47A3bD174012730"
+        },
+        "state": {
+          "collateral": "3961491354129141559967243",
+          "borrowAssets": 3415010817768,
+          "borrowAssetsUsd": 3414021.209745197,
+          "collateralUsd": 3934278.541948783
+        }
+      },
+      "market": {
+        "chain_id": 1,
+        "market_id": "0x5613b170ded221c588b6e9637b910f49e5508680ceede207f44aa72e5c46cb05",
+        "loan_token": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "collateral_token": "0xB195B618EA52b77CB2a58846F452f59f8dFa9390",
+        "oracle_address": "0xF8b29e7E9c00CE531434775f7923CC9fbCa01b08",
+        "irm_address": "0x870aC11D48B15DB9a138Cf899d20F13F79Ba00BC",
+        "lltv_wad": "915000000000000000",
+        "creation_block_number": "25791257"
+      },
+      "marketState": {
+        "chain_id": 1,
+        "market_id": "0x5613b170ded221c588b6e9637b910f49e5508680ceede207f44aa72e5c46cb05",
+        "last_indexed_block": "26162271",
+        "last_accrual_timestamp": 1791469775,
+        "total_supply_assets": "7758543352872",
+        "total_supply_shares": "7725170606554942046",
+        "total_borrow_assets": "6994026929779",
+        "total_borrow_shares": "6960495912806339180",
+        "fee_wad": "0"
+      },
+      "oracle": {
+        "last_updated_at": null,
+        "oracle_address": "0xF8b29e7E9c00CE531434775f7923CC9fbCa01b08",
+        "chain_id": 1,
+        "last_indexed_block": "26162270",
+        "price": "992364815449010655000000"
+      },
+      "pendleSwap": {
+        "underlyingToken": "0x9d39a5de30e57443bff2a8307a4256c8797a3497",
+        "underlyingTokenToPtRate": 1.2599780459665335,
+        "ptToUnderlyingTokenRate": 0.7934446404077694,
+        "underlyingTokenToYtRate": 197.93524619630696,
+        "ytToUnderlyingTokenRate": 0.004854002341267404,
+        "impliedApy": 0.05011019435191318
+      },
+      "underlyingPrice": {
+        "chain_id": 1,
+        "address": "0x9D39A5DE30e57443BfF2A8307A4256c8797A3497",
+        "price": 1.2515095726436536,
+        "timestamp": "1791637726",
+        "provider": "defillama"
+      }
+    },
+    "ledger": {
+      "schemaVersion": "evidence-ledger/v1",
+      "items": [
+        {
+          "id": "settlement-chain",
+          "claim": "The selected contracts and position are on Ethereum.",
+          "status": "observed",
+          "observedAt": "2026-10-10T13:16:07.568Z",
+          "sources": [
+            {
+              "provider": "Morpho public API",
+              "url": "https://api.morpho.org/v0/blue/markets/1:0x5613b170ded221c588b6e9637b910f49e5508680ceede207f44aa72e5c46cb05"
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "id": "yield-source",
+          "claim": "Ethena is the selected PT market's external yield source.",
+          "status": "observed",
+          "observedAt": "2026-10-10T13:16:07.568Z",
+          "sources": [
+            {
+              "provider": "Pendle Core API",
+              "url": "https://api-v2.pendle.finance/core/v2/markets/all"
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "id": "pt-underlying",
+          "claim": "The selected PT uses sUSDe as its underlying asset.",
+          "status": "observed",
+          "observedAt": "2026-10-10T13:16:07.568Z",
+          "sources": [
+            {
+              "provider": "Pendle Core API",
+              "url": "https://api-v2.pendle.finance/core/v1/sdk/1/markets/0x47ad2cd1dd15739a7a035b9d3b7828d916fef77e/swapping-prices"
+            }
+          ],
+          "inputs": []
+        },
+        {
+          "id": "pendle-exit-quote",
+          "claim": "Pendle returned a live PT-to-underlying exit rate for the selected market.",
+          "status": "observed",
+          "observedAt": "2026-10-10T13:16:07.568Z",
+          "sources": [
+            {
+              "provider": "Pendle Core API",
+              "url": "https://api-v2.pendle.finance/core/v1/sdk/1/markets/0x47ad2cd1dd15739a7a035b9d3b7828d916fef77e/swapping-prices"
+            }
+          ],
+          "observation": {
+            "ptToUnderlyingRate": 0.7934446404077694
+          },
+          "inputs": []
+        },
+        {
+          "id": "morpho-oracle",
+          "claim": "Morpho exposes a live oracle value for PT collateral in this market.",
+          "status": "observed",
+          "observedAt": "2026-10-10T13:16:07.568Z",
+          "sources": [
+            {
+              "provider": "Morpho public API",
+              "url": "https://api.morpho.org/v0/oracles/1:0xF8b29e7E9c00CE531434775f7923CC9fbCa01b08/state"
+            }
+          ],
+          "observation": {
+            "oraclePriceUsd": 0.9923648154490107
+          },
+          "inputs": []
+        },
+        {
+          "id": "morpho-collateral-rule",
+          "claim": "Morpho accepts PT-sUSDe as collateral for USDC with the observed LLTV.",
+          "status": "observed",
+          "observedAt": "2026-10-10T13:16:07.568Z",
+          "sources": [
+            {
+              "provider": "Morpho public API",
+              "url": "https://api.morpho.org/v0/blue/markets/1:0x5613b170ded221c588b6e9637b910f49e5508680ceede207f44aa72e5c46cb05"
+            }
+          ],
+          "observation": {
+            "lltvWad": "915000000000000000"
+          },
+          "inputs": []
+        },
+        {
+          "id": "public-position-state",
+          "claim": "The selected public address has observed PT collateral and USDC debt in the market.",
+          "status": "observed",
+          "observedAt": "2026-10-10T13:16:07.568Z",
+          "sources": [
+            {
+              "provider": "Morpho public GraphQL API",
+              "url": "https://api.morpho.org/graphql"
+            }
+          ],
+          "observation": {
+            "collateral": "3961491354129141559967243",
+            "borrowAssets": 3415010817768,
+            "borrowAssetsUsd": 3414021.209745197,
+            "collateralUsd": 3934278.541948783
+          },
+          "inputs": []
+        },
+        {
+          "id": "oracle-exit-tomography",
+          "claim": "The Morpho oracle and assembled Pendle exit value are economically aligned at this observation.",
+          "status": "inference_to_test",
+          "observedAt": "2026-10-10T13:16:07.568Z",
+          "sources": [
+            {
+              "provider": "Morpho oracle API",
+              "url": "https://api.morpho.org/v0/oracles/1:0xF8b29e7E9c00CE531434775f7923CC9fbCa01b08/state"
+            },
+            {
+              "provider": "Pendle swap-price API",
+              "url": "https://api-v2.pendle.finance/core/v1/sdk/1/markets/0x47ad2cd1dd15739a7a035b9d3b7828d916fef77e/swapping-prices"
+            },
+            {
+              "provider": "Morpho asset-price API",
+              "url": "https://api.morpho.org/v0/tokens/1:0x9d39a5de30e57443bff2a8307a4256c8797a3497/price"
+            }
+          ],
+          "inputs": [
+            "morpho-oracle",
+            "pendle-exit-quote"
+          ],
+          "observation": {
+            "oraclePriceUsd": 0.9923648154490107,
+            "ptToUnderlyingRate": 0.7934446404077694,
+            "underlyingUsdPrice": 1.2515095726436536,
+            "pendleExitValueUsd": 0.99300356,
+            "signedBasisPercent": 0.064,
+            "absoluteBasisBps": 6.44,
+            "screeningBandBps": 50
+          },
+          "limitation": "The observation supports price consistency but cannot prove the oracle's implementation."
+        }
+      ]
+    },
+    "snapshotId": "fulcrum-8a1091a2aa374cd0",
+    "sha256": "8a1091a2aa374cd0f789fd3aa840942a6aef33c6537a3d1b61c3968c17ca337a"
+  },
+  "graph": {
+    "schemaVersion": "dependency-graph/v1",
+    "nodes": [
+      {
+        "id": "ethereum",
+        "label": "Ethereum",
+        "type": "settlement"
+      },
+      {
+        "id": "ethena",
+        "label": "Ethena",
+        "type": "yield-source"
+      },
+      {
+        "id": "susde",
+        "label": "sUSDe",
+        "type": "yield-bearing-asset"
+      },
+      {
+        "id": "pt",
+        "label": "PT-sUSDe",
+        "type": "principal-token"
+      },
+      {
+        "id": "pendle",
+        "label": "Pendle market",
+        "type": "exit-venue"
+      },
+      {
+        "id": "oracle",
+        "label": "Morpho oracle",
+        "type": "valuation-source"
+      },
+      {
+        "id": "morpho",
+        "label": "Morpho market",
+        "type": "lending-market"
+      },
+      {
+        "id": "position",
+        "label": "Public position",
+        "type": "position"
+      }
+    ],
+    "edges": [
+      {
+        "id": "ethereum-settles-ethena",
+        "from": "ethereum",
+        "to": "ethena",
+        "capability": "access",
+        "evidenceIds": [
+          "settlement-chain"
+        ]
+      },
+      {
+        "id": "ethena-issues-susde",
+        "from": "ethena",
+        "to": "susde",
+        "capability": "value",
+        "evidenceIds": [
+          "yield-source"
+        ]
+      },
+      {
+        "id": "susde-underlies-pt",
+        "from": "susde",
+        "to": "pt",
+        "capability": "value",
+        "evidenceIds": [
+          "pt-underlying"
+        ]
+      },
+      {
+        "id": "pendle-exits-pt",
+        "from": "pendle",
+        "to": "pt",
+        "capability": "escape",
+        "evidenceIds": [
+          "pendle-exit-quote"
+        ]
+      },
+      {
+        "id": "pt-valued-by-oracle",
+        "from": "pt",
+        "to": "oracle",
+        "capability": "value",
+        "evidenceIds": [
+          "morpho-oracle"
+        ]
+      },
+      {
+        "id": "pendle-oracle-hypothesis",
+        "from": "pendle",
+        "to": "oracle",
+        "capability": "value",
+        "state": "consistent_but_unconfirmed",
+        "evidenceIds": [
+          "oracle-exit-tomography"
+        ]
+      },
+      {
+        "id": "oracle-constrains-morpho",
+        "from": "oracle",
+        "to": "morpho",
+        "capability": "value",
+        "evidenceIds": [
+          "morpho-collateral-rule"
+        ]
+      },
+      {
+        "id": "morpho-constrains-position",
+        "from": "morpho",
+        "to": "position",
+        "capability": "access",
+        "evidenceIds": [
+          "public-position-state"
+        ]
+      }
+    ]
+  },
+  "tomography": {
+    "method": "Live three-way valuation triangulation",
+    "purpose": "Try to falsify the claim that the collateral oracle is economically aligned with the live PT exit route.",
+    "inputs": {
+      "oraclePriceUsd": 0.9923648154490107,
+      "ptToUnderlyingRate": 0.7934446404077694,
+      "underlyingUsdPrice": 1.2515095726436536,
+      "pendleExitValueUsd": 0.99300356,
+      "signedBasisPercent": 0.064,
+      "absoluteBasisBps": 6.44,
+      "screeningBandBps": 50
+    },
+    "classification": "consistent_but_unconfirmed",
+    "conclusion": "The live values are economically consistent at this read. This supports an exposure hypothesis, but does not prove how the oracle is built.",
+    "hypotheses": [
+      {
+        "id": "market-aware",
+        "title": "The oracle is aligned with live exit economics",
+        "result": "supported",
+        "explanation": "The observed oracle and independently assembled exit value are within the screening band."
+      },
+      {
+        "id": "static-face-value",
+        "title": "The oracle ignores current exit discount",
+        "result": "not-supported",
+        "explanation": "A material gap would be expected if the oracle held a stale face value while the market discounted PT."
+      },
+      {
+        "id": "independent-source",
+        "title": "Both values happen to agree through a separate source",
+        "result": "unresolved",
+        "explanation": "Price agreement does not disclose the oracle implementation or prove causation."
+      }
+    ],
+    "nextInvestigation": {
+      "title": "Inspect the oracle implementation and deployment trail",
+      "reason": "This is the smallest next observation that can distinguish direct market-aware construction from coincidental price agreement.",
+      "status": "queued",
+      "whyNotHistoricalCorrelation": "Correlation can show shared movement but cannot identify the oracle’s input path."
+    },
+    "limitations": [
+      "The test is one timestamped observation, not a causal proof.",
+      "The sUSDe USD reference and Pendle quote can have different update times.",
+      "The 50-basis-point band is a transparent screening rule, not a protocol guarantee."
+    ],
+    "graph": {
+      "nodes": [
+        {
+          "id": "ethereum",
+          "label": "Ethereum",
+          "kind": "settlement",
+          "state": "observed"
+        },
+        {
+          "id": "ethena",
+          "label": "Ethena",
+          "kind": "yield source",
+          "state": "observed"
+        },
+        {
+          "id": "susde",
+          "label": "sUSDe",
+          "kind": "yield-bearing dollar",
+          "state": "observed"
+        },
+        {
+          "id": "pt",
+          "label": "PT-sUSDe",
+          "kind": "position asset",
+          "state": "observed"
+        },
+        {
+          "id": "pendle",
+          "label": "Pendle exit market",
+          "kind": "escape route",
+          "state": "observed"
+        },
+        {
+          "id": "oracle",
+          "label": "Morpho oracle",
+          "kind": "collateral valuation",
+          "state": "observed"
+        },
+        {
+          "id": "morpho",
+          "label": "Morpho USDC market",
+          "kind": "lending constraint",
+          "state": "observed"
+        },
+        {
+          "id": "position",
+          "label": "Public position",
+          "kind": "economic exposure",
+          "state": "observed"
+        }
+      ],
+      "edges": [
+        {
+          "from": "ethereum",
+          "to": "ethena",
+          "capability": "access",
+          "state": "observed",
+          "claim": "Ethena contracts settle on Ethereum."
+        },
+        {
+          "from": "ethena",
+          "to": "susde",
+          "capability": "value",
+          "state": "observed",
+          "claim": "sUSDe is the selected yield-bearing underlying."
+        },
+        {
+          "from": "susde",
+          "to": "pt",
+          "capability": "value",
+          "state": "observed",
+          "claim": "PT-sUSDe derives value from the sUSDe yield source."
+        },
+        {
+          "from": "pendle",
+          "to": "pt",
+          "capability": "escape",
+          "state": "observed",
+          "claim": "Pendle supplies a live PT-to-underlying exit quote."
+        },
+        {
+          "from": "pt",
+          "to": "oracle",
+          "capability": "value",
+          "state": "observed",
+          "claim": "Morpho's oracle values the PT collateral."
+        },
+        {
+          "from": "pendle",
+          "to": "oracle",
+          "capability": "value",
+          "state": "consistent_but_unconfirmed",
+          "claim": "The live values are compared by the tomography experiment; oracle construction remains unproved."
+        },
+        {
+          "from": "oracle",
+          "to": "morpho",
+          "capability": "value",
+          "state": "observed",
+          "claim": "The oracle governs collateral valuation in this market."
+        },
+        {
+          "from": "morpho",
+          "to": "position",
+          "capability": "access",
+          "state": "observed",
+          "claim": "The position has a USDC debt against PT collateral."
+        }
+      ]
+    }
+  }
+}

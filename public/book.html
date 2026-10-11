@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fulcrum · Book</title>
+<meta name="description" content="Ten real Morpho vaults as one book: apply an incident to every pocket, see the dependencies they secretly share, and get a stay-or-exit verdict per pocket.">
+<meta property="og:title" content="Fulcrum: X-ray a DeFi book"><meta property="og:description" content="Hidden shared dependencies, oracle blind spots and a stay-or-exit verdict, from real on-chain data.">
+<meta name="theme-color" content="#0a0f19"><link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Doto:wght@700;900&family=Martian+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="/xray.css"></head>
+<body><div id="chrome"></div>
+<main id="main">
+<section>
+  <p class="eyebrow">Book view</p>
+  <div class="split">
+    <div class="stack">
+      <h1>10 positions, 10% each. How diversified is the book really?</h1>
+      <p class="muted" style="max-width:62ch">A hypothetical $1M position in each of 10 real Morpho vaults. Pick a shock on the right: it hits all 10 positions at once and give a stay or exit verdict for each.</p>
+      <div class="table-wrap"><table class="matrix" id="matrix"></table></div>
+      <p class="small">Rows are dependencies, columns are the 10 positions. Each number is the share of that vault's allocation exposed to the dependency. Red rows are oracle blind spots; yellow is the shock target.</p>
+    </div>
+    <aside class="stack">
+      <div class="verdict" id="verdict" data-v=""><p class="eyebrow">Whole book</p><div class="skeleton"></div></div>
+      <form class="controls" id="controls" aria-label="Incident">
+        <label>Shock type<select name="incident" id="incident">
+          <option value="price-fall">Price shock</option><option value="depeg">Depeg</option><option value="feed-freeze">Oracle feed freeze</option></select></label>
+        <label>Scenario<div class="seg" id="now"><button type="button" data-v="maybe" aria-pressed="true">Possible</button><button type="button" data-v="now" aria-pressed="false">In progress</button></div></label>
+        <label>Target<select name="targetId" id="target"></select></label>
+        <label>Shock size <span class="mono" id="shock-out">35%</span><input type="range" name="collateralShock" min="5" max="90" step="1" value="35"></label>
+        <label>Path<div class="seg" id="path"><button type="button" data-v="gap" aria-pressed="true">Instant gap</button><button type="button" data-v="gradual" aria-pressed="false">Gradual</button></div></label>
+        <label>Liquidation sale discount <span class="mono" id="disc-out">5%</span><input type="range" name="recoveryDiscount" min="0" max="20" step="0.5" value="5"></label>
+        <label>Horizon (days)<input type="number" name="horizonDays" min="1" max="365" value="30"></label>
+      </form>
+      <p class="notice" id="notice" role="status"></p>
+    </aside>
+  </div>
+</section>
+<section>
+  <h2>Positions</h2>
+  <p class="small">Exit cost = forgone yield over the horizon + gas. Withdrawals redeem at share price, so no slippage.</p>
+  <div class="table-wrap"><table><thead><tr><th>Pocket</th><th>Asset</th><th class="n">Net APY</th><th class="n">Exposed</th><th class="n">Incident loss</th><th class="n">Exit cost</th><th class="n">Break-even P</th><th>Verdict</th><th></th></tr></thead><tbody id="pockets"><tr><td colspan="9"><div class="skeleton" style="min-height:40px"></div></td></tr></tbody></table></div>
+</section>
+<section>
+  <h2>Shared dependencies</h2>
+  <p class="small">"% of book" is the share of the $10M allocated to markets that rely on it. Red rows are oracle blind spots.</p>
+  <div class="table-wrap"><table><thead><tr><th>Dependency</th><th>Kind</th><th>Pockets</th><th class="n">% of book</th><th class="n">USD</th></tr></thead><tbody id="shared"></tbody></table></div>
+</section>
+<section>
+  <h2>Same check on Aave v3 and Spark</h2>
+  <p class="small">Pooled lending protocols, scanned the same way: for every collateral asset, the price source the pool actually uses, read on-chain, and whether it can see that asset losing its peg. Amounts are supply priced with each protocol's own oracle.</p>
+  <div class="row" id="lending-sum" style="margin:var(--s4) 0"></div>
+  <div class="table-wrap"><table><thead><tr><th>Protocol</th><th>Collateral</th><th class="n">Supplied</th><th class="n">Liq. threshold</th><th class="n">Liq. bonus</th><th>Price source</th><th>Sees a depeg?</th><th>Also on Morpho</th></tr></thead><tbody id="lending"><tr><td colspan="8"><div class="skeleton" style="min-height:40px"></div></td></tr></tbody></table></div>
+</section>
+<section>
+  <details class="evidence"><summary>Data sources and limits</summary><ul id="evidence"></ul></details>
+</section>
+</main>
+<footer class="foot"><span>FULCRUM · Belem Capital DeFi Risk Dependency Challenge · Blockchain Student Association hackathon</span><span>Real public vaults · hypothetical equal weights · not Belem holdings · read-only, no signing</span></footer>
+<div class="night" id="night" aria-hidden="true"><canvas id="night-film"></canvas><div class="say"><p class="eyebrow">Fulcrum · 3 a.m. mode · Esc to close</p><div class="word" id="night-word"></div><p id="night-line"></p><div class="stamp" id="night-stamp"></div></div></div>
+<script type="module" src="/book.js"></script></body></html>

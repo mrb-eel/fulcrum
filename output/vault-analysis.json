@@ -1,0 +1,3383 @@
+{
+  "model": {
+    "snapshotId": "vault-8e01898da20917ee363b26b970431f5f4b9d69393d8321edffb2d76cc552327b",
+    "capturedAt": "2026-10-11T01:34:09.264Z",
+    "name": "Steakhouse USDC",
+    "address": "0xBEEF01735c132Ada46AA9aA4c54623cAA92A64CB",
+    "chainId": 1,
+    "asset": {
+      "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+      "symbol": "USDC",
+      "decimals": 6
+    },
+    "total": 65320383.773361,
+    "usdPrice": 0.9997151245592396,
+    "allocated": 65320383.773361,
+    "unresolvedAssets": 0,
+    "queueLiquidity": 48137657.20791501,
+    "reportedLiquidity": 48092563.421383,
+    "dependencies": [
+      {
+        "id": "family:BTC",
+        "label": "BTC-linked collateral",
+        "kind": "family",
+        "status": "inferred",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x09dc9e7eb5d8fc54b2bc41d1135fd4e99057a580f680321faeb90c7a21e631c1",
+          "0xbc99de6a88904cd0e69042ad6f266e63182801f030c636507c3caf590ffd84fe",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 38327828.84114,
+        "exposureBasis": "Union of vault allocations in connected markets"
+      },
+      {
+        "id": "feed:1:0xf4030086522a5beea4988f8ca5b36dbc97bee88c",
+        "label": "Feed 0xF40300",
+        "kind": "feed",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 38162200.744023,
+        "exposureBasis": "Union of vault allocations in connected markets"
+      },
+      {
+        "id": "token:1:0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+        "label": "cbBTC",
+        "kind": "collateral",
+        "status": "observed",
+        "marketIds": [
+          "0xbc99de6a88904cd0e69042ad6f266e63182801f030c636507c3caf590ffd84fe",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 28048017.700604003,
+        "exposureBasis": "Union of vault allocations in connected markets"
+      },
+      {
+        "id": "market:0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+        "label": "cbBTC market 0x64d65c",
+        "kind": "market",
+        "status": "observed",
+        "marketIds": [
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 28046911.32332,
+        "exposureBasis": "Union of vault allocations in connected markets"
+      },
+      {
+        "id": "oracle:1:0xa6d6950c9f177f1de7f7757fb33539e3ec60182a",
+        "label": "Oracle 0xA6D695",
+        "kind": "oracle",
+        "status": "observed",
+        "marketIds": [
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 28046911.32332,
+        "exposureBasis": "Union of vault allocations in connected markets"
+      },
+      {
+        "id": "family:ETH",
+        "label": "ETH-linked collateral",
+        "kind": "family",
+        "status": "inferred",
+        "marketIds": [
+          "0x85252bb8485c99bba46fe149c7dd2aad83672640f53c630890673cf1848ba16e",
+          "0x7e585a933ffe8443c371b4f8cfeb4430f5f6a14c2f32a898c26662c67a1cb8b8",
+          "0x94b823e6bd8ea533b4e33fbc307faea0b307301bc48763acc4d4aa4def7636cd",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc",
+          "0x34377fc4f617c51818e92c79df31ff270c6a91bc94ad32e367fdf59b9f4ac5dd"
+        ],
+        "exposure": 15113625.08745,
+        "exposureBasis": "Union of vault allocations in connected markets"
+      },
+      {
+        "id": "feed:1:0xc0053f3fbccd593758258334dfce24c2a9a673ad",
+        "label": "Feed 0xc0053f",
+        "kind": "feed",
+        "status": "observed",
+        "marketIds": [
+          "0x85252bb8485c99bba46fe149c7dd2aad83672640f53c630890673cf1848ba16e",
+          "0x7e585a933ffe8443c371b4f8cfeb4430f5f6a14c2f32a898c26662c67a1cb8b8",
+          "0x94b823e6bd8ea533b4e33fbc307faea0b307301bc48763acc4d4aa4def7636cd",
+          "0x34377fc4f617c51818e92c79df31ff270c6a91bc94ad32e367fdf59b9f4ac5dd"
+        ],
+        "exposure": 12072369.001805,
+        "exposureBasis": "Union of vault allocations in connected markets"
+      },
+      {
+        "id": "market:0xc498f4bfdda99e60ea8eb04c1e145654a70bc59da76ef9c6ed54a1314d78e5b5",
+        "label": "steakEURCV market 0xc498f4",
+        "kind": "market",
+        "status": "observed",
+        "marketIds": [
+          "0xc498f4bfdda99e60ea8eb04c1e145654a70bc59da76ef9c6ed54a1314d78e5b5"
+        ],
+        "exposure": 11878880.333358,
+        "exposureBasis": "Union of vault allocations in connected markets"
+      },
+      {
+        "id": "token:1:0xbeef0c075da5d01112ae5cf34d257074fb5ddb2f",
+        "label": "steakEURCV",
+        "kind": "collateral",
+        "status": "observed",
+        "marketIds": [
+          "0xc498f4bfdda99e60ea8eb04c1e145654a70bc59da76ef9c6ed54a1314d78e5b5"
+        ],
+        "exposure": 11878880.333358,
+        "exposureBasis": "Union of vault allocations in connected markets"
+      },
+      {
+        "id": "oracle:1:0xf3efa46246d319381f5e7023ae83f9c23c11b0f6",
+        "label": "Oracle 0xF3EFa4",
+        "kind": "oracle",
+        "status": "observed",
+        "marketIds": [
+          "0xc498f4bfdda99e60ea8eb04c1e145654a70bc59da76ef9c6ed54a1314d78e5b5"
+        ],
+        "exposure": 11878880.333358,
+        "exposureBasis": "Union of vault allocations in connected markets"
+      },
+      {
+        "id": "feed:1:0xb49f677943bc038e9857d61e7d053caa2c1734c1",
+        "label": "Feed 0xb49f67",
+        "kind": "feed",
+        "status": "observed",
+        "marketIds": [
+          "0xc498f4bfdda99e60ea8eb04c1e145654a70bc59da76ef9c6ed54a1314d78e5b5"
+        ],
+        "exposure": 11878880.333358,
+        "exposureBasis": "Union of vault allocations in connected markets"
+      },
+      {
+        "id": "oracle-vault:1:0xbeef0c075da5d01112ae5cf34d257074fb5ddb2f",
+        "label": "Conversion vault 0xbeef0C",
+        "kind": "oracle-vault",
+        "status": "observed",
+        "marketIds": [
+          "0xc498f4bfdda99e60ea8eb04c1e145654a70bc59da76ef9c6ed54a1314d78e5b5"
+        ],
+        "exposure": 11878880.333358,
+        "exposureBasis": "Union of vault allocations in connected markets"
+      },
+      {
+        "id": "token:1:0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee",
+        "label": "weETH",
+        "kind": "collateral",
+        "status": "observed",
+        "marketIds": [
+          "0x85252bb8485c99bba46fe149c7dd2aad83672640f53c630890673cf1848ba16e",
+          "0x34377fc4f617c51818e92c79df31ff270c6a91bc94ad32e367fdf59b9f4ac5dd"
+        ],
+        "exposure": 10781980.280173,
+        "exposureBasis": "Union of vault allocations in connected markets"
+      },
+      {
+        "id": "oracle:1:0xa3a7a3cefee206f9d7fe00ec3c83324ed4228411",
+        "label": "Oracle 0xa3A7A3",
+        "kind": "oracle",
+        "status": "observed",
+        "marketIds": [
+          "0x85252bb8485c99bba46fe149c7dd2aad83672640f53c630890673cf1848ba16e",
+          "0x34377fc4f617c51818e92c79df31ff270c6a91bc94ad32e367fdf59b9f4ac5dd"
+        ],
+        "exposure": 10781980.280173,
+        "exposureBasis": "Union of vault allocations in connected markets"
+      },
+      {
+        "id": "feed:1:0x4270e1817576bba4b640466be79a408ef128f828",
+        "label": "Feed 0x4270E1",
+        "kind": "feed",
+        "status": "observed",
+        "marketIds": [
+          "0x85252bb8485c99bba46fe149c7dd2aad83672640f53c630890673cf1848ba16e",
+          "0x34377fc4f617c51818e92c79df31ff270c6a91bc94ad32e367fdf59b9f4ac5dd"
+        ],
+        "exposure": 10781980.280173,
+        "exposureBasis": "Union of vault allocations in connected markets"
+      },
+      {
+        "id": "feed:1:0xc3866d726c204c0836e0677a31973c649888973d",
+        "label": "Feed 0xc3866d",
+        "kind": "feed",
+        "status": "observed",
+        "marketIds": [
+          "0x85252bb8485c99bba46fe149c7dd2aad83672640f53c630890673cf1848ba16e",
+          "0x34377fc4f617c51818e92c79df31ff270c6a91bc94ad32e367fdf59b9f4ac5dd"
+        ],
+        "exposure": 10781980.280173,
+        "exposureBasis": "Union of vault allocations in connected markets"
+      },
+      {
+        "id": "market:0x85252bb8485c99bba46fe149c7dd2aad83672640f53c630890673cf1848ba16e",
+        "label": "weETH market 0x85252b",
+        "kind": "market",
+        "status": "observed",
+        "marketIds": [
+          "0x85252bb8485c99bba46fe149c7dd2aad83672640f53c630890673cf1848ba16e"
+        ],
+        "exposure": 10740002.972353,
+        "exposureBasis": "Union of vault allocations in connected markets"
+      },
+      {
+        "id": "token:1:0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+        "label": "WBTC",
+        "kind": "collateral",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x09dc9e7eb5d8fc54b2bc41d1135fd4e99057a580f680321faeb90c7a21e631c1"
+        ],
+        "exposure": 10279811.140536,
+        "exposureBasis": "Union of vault allocations in connected markets"
+      },
+      {
+        "id": "market:0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+        "label": "WBTC market 0x3a85e6",
+        "kind": "market",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49"
+        ],
+        "exposure": 10115289.420703,
+        "exposureBasis": "Union of vault allocations in connected markets"
+      },
+      {
+        "id": "oracle:1:0xdddd770badd886df3864029e4b377b5f6a2b6b83",
+        "label": "Oracle 0xDddd77",
+        "kind": "oracle",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49"
+        ],
+        "exposure": 10115289.420703,
+        "exposureBasis": "Union of vault allocations in connected markets"
+      },
+      {
+        "id": "feed:1:0xfdfd9c85ad200c506cf9e21f1fd8dd01932fbb23",
+        "label": "Feed 0xfdFD9C",
+        "kind": "feed",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49"
+        ],
+        "exposure": 10115289.420703,
+        "exposureBasis": "Union of vault allocations in connected markets"
+      },
+      {
+        "id": "feed:1:0x8fffffd4afb6115b954bd326cbe7b4ba576818f6",
+        "label": "Feed 0x8fFfFf",
+        "kind": "feed",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49"
+        ],
+        "exposure": 10115289.420703,
+        "exposureBasis": "Union of vault allocations in connected markets"
+      },
+      {
+        "id": "token:1:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+        "label": "wstETH",
+        "kind": "collateral",
+        "status": "observed",
+        "marketIds": [
+          "0x7e585a933ffe8443c371b4f8cfeb4430f5f6a14c2f32a898c26662c67a1cb8b8",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 4313318.999314,
+        "exposureBasis": "Union of vault allocations in connected markets"
+      },
+      {
+        "id": "feed:1:0x4f67e4d9bd67efa28236013288737d39aef48e79",
+        "label": "Feed 0x4F67e4",
+        "kind": "feed",
+        "status": "observed",
+        "marketIds": [
+          "0x7e585a933ffe8443c371b4f8cfeb4430f5f6a14c2f32a898c26662c67a1cb8b8",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 4313318.999314,
+        "exposureBasis": "Union of vault allocations in connected markets"
+      },
+      {
+        "id": "market:0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc",
+        "label": "wstETH market 0xb32349",
+        "kind": "market",
+        "status": "observed",
+        "marketIds": [
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 3041256.085645,
+        "exposureBasis": "Union of vault allocations in connected markets"
+      },
+      {
+        "id": "oracle:1:0x48f7e36eb6b826b2df4b2e630b62cd25e89e40e2",
+        "label": "Oracle 0x48F7E3",
+        "kind": "oracle",
+        "status": "observed",
+        "marketIds": [
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 3041256.085645,
+        "exposureBasis": "Union of vault allocations in connected markets"
+      },
+      {
+        "id": "feed:1:0x986b5e1e1755e3c2440e960477f25201b0a8bbd4",
+        "label": "Feed 0x986b5E",
+        "kind": "feed",
+        "status": "observed",
+        "marketIds": [
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 3041256.085645,
+        "exposureBasis": "Union of vault allocations in connected markets"
+      },
+      {
+        "id": "borrower:1:0x5130985ce6a0e54f369712cd6f2fdec084026e54",
+        "label": "Borrower 0x513098",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x94b823e6bd8ea533b4e33fbc307faea0b307301bc48763acc4d4aa4def7636cd",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 1809731.2942090395,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "market:0x7e585a933ffe8443c371b4f8cfeb4430f5f6a14c2f32a898c26662c67a1cb8b8",
+        "label": "wstETH market 0x7e585a",
+        "kind": "market",
+        "status": "observed",
+        "marketIds": [
+          "0x7e585a933ffe8443c371b4f8cfeb4430f5f6a14c2f32a898c26662c67a1cb8b8"
+        ],
+        "exposure": 1272062.913669,
+        "exposureBasis": "Union of vault allocations in connected markets"
+      },
+      {
+        "id": "oracle:1:0xe087ad7fe989cf63f8383579d160a20ee7e69f9f",
+        "label": "Oracle 0xe087AD",
+        "kind": "oracle",
+        "status": "observed",
+        "marketIds": [
+          "0x7e585a933ffe8443c371b4f8cfeb4430f5f6a14c2f32a898c26662c67a1cb8b8"
+        ],
+        "exposure": 1272062.913669,
+        "exposureBasis": "Union of vault allocations in connected markets"
+      },
+      {
+        "id": "borrower:1:0xeb9b0a7844ed7be427fd3d7d23765b1901ee7c20",
+        "label": "Borrower 0xeb9b0a",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 1136524.801545687,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x34a8b0660ef835d9d6cfc5770e15e3fac75049bc",
+        "label": "Borrower 0x34a8b0",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 738731.1365899894,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0xc99882e7efb11e4258dfee59954226e53fef4e68",
+        "label": "Borrower 0xc99882",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 540186.7959755727,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x70fce97d671e81080ca3ab4cc7a59aac2e117137",
+        "label": "Borrower 0x70fce9",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 483742.19048444513,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x8a0aa6935041df43035e33a212a4432f90bf55c8",
+        "label": "Borrower 0x8a0aa6",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 231245.35237845645,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0xe3aa1e551c9ee0ac8979de669da5032ef60b22e9",
+        "label": "Borrower 0xe3aa1e",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x85252bb8485c99bba46fe149c7dd2aad83672640f53c630890673cf1848ba16e",
+          "0x94b823e6bd8ea533b4e33fbc307faea0b307301bc48763acc4d4aa4def7636cd"
+        ],
+        "exposure": 223179.68250019068,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "market:0x09dc9e7eb5d8fc54b2bc41d1135fd4e99057a580f680321faeb90c7a21e631c1",
+        "label": "WBTC market 0x09dc9e",
+        "kind": "market",
+        "status": "observed",
+        "marketIds": [
+          "0x09dc9e7eb5d8fc54b2bc41d1135fd4e99057a580f680321faeb90c7a21e631c1"
+        ],
+        "exposure": 164521.719833,
+        "exposureBasis": "Union of vault allocations in connected markets"
+      },
+      {
+        "id": "oracle:1:0xf1561bc4b3d1ba49053986fb9ee88d4fe22d0cf4",
+        "label": "Oracle 0xf1561b",
+        "kind": "oracle",
+        "status": "observed",
+        "marketIds": [
+          "0x09dc9e7eb5d8fc54b2bc41d1135fd4e99057a580f680321faeb90c7a21e631c1"
+        ],
+        "exposure": 164521.719833,
+        "exposureBasis": "Union of vault allocations in connected markets"
+      },
+      {
+        "id": "borrower:1:0x7509f31b8634a9984201ef9233f6ca412bbca4e1",
+        "label": "Borrower 0x7509f3",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 93929.11794349797,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0xb2a2891fe370c762836c7bc53a7dac555c759235",
+        "label": "Borrower 0xb2a289",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 86985.31327805802,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x3cc616c2d6566a2f7b2595795cd7df5dca5b230e",
+        "label": "Borrower 0x3cc616",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 85959.84127558616,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0xed6965ea279b83b449e4d98f270a709cf46b7405",
+        "label": "Borrower 0xed6965",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 81487.85267962926,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x6cc1252abb6d3568e23575ea67d50f6517c36a90",
+        "label": "Borrower 0x6cc125",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 74294.81898293091,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0xd69ee18c7cd0c3efb98acbfbeeb835ecfcc08b0e",
+        "label": "Borrower 0xd69ee1",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x7e585a933ffe8443c371b4f8cfeb4430f5f6a14c2f32a898c26662c67a1cb8b8",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 70568.51134311486,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0xd8fa2f704ac2d5ff4acecbf248db61523f99833b",
+        "label": "Borrower 0xd8fa2f",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 70063.59602582577,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x88cd0d18e608b689fbab5644b83b08f7a267b6e8",
+        "label": "Borrower 0x88cd0d",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x7e585a933ffe8443c371b4f8cfeb4430f5f6a14c2f32a898c26662c67a1cb8b8"
+        ],
+        "exposure": 65514.587767600184,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0xff79e57c48549ae4f6e0a6b3a687a6038921dbc9",
+        "label": "Borrower 0xff79e5",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x94b823e6bd8ea533b4e33fbc307faea0b307301bc48763acc4d4aa4def7636cd",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 62417.65109624059,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x43f9a40200310ce535edf5ea0eb71afb53779ba4",
+        "label": "Borrower 0x43f9a4",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 56291.04248732058,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x5acdabec96c1d2bc16c030b7dd98d2a8d669dc98",
+        "label": "Borrower 0x5acdab",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 45954.4696013661,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0xc6bafa2b7c456b172fbb05710bd3c1d622ef3fce",
+        "label": "Borrower 0xc6bafa",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 42279.7751284147,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "market:0x34377fc4f617c51818e92c79df31ff270c6a91bc94ad32e367fdf59b9f4ac5dd",
+        "label": "weETH market 0x34377f",
+        "kind": "market",
+        "status": "observed",
+        "marketIds": [
+          "0x34377fc4f617c51818e92c79df31ff270c6a91bc94ad32e367fdf59b9f4ac5dd"
+        ],
+        "exposure": 41977.30782,
+        "exposureBasis": "Union of vault allocations in connected markets"
+      },
+      {
+        "id": "borrower:1:0x3bfec97199419b28f13b4f9e35cbd81c423e1c89",
+        "label": "Borrower 0x3bfec9",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 35840.798235441194,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x1f9c50b4d59cd2d16bdbdcbca6f17f39237415b3",
+        "label": "Borrower 0x1f9c50",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 35372.07646843851,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0xeeff6fd32deafe1a9d3258a51c7f952f9ff0b2ce",
+        "label": "Borrower 0xeeff6f",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 35232.55620896774,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0xaee3743636e194d72215cccd9da687421894b072",
+        "label": "Borrower 0xaee374",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 31517.46081921762,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0xa4b93d80ceeaf2960927bb719092a1529979ac93",
+        "label": "Borrower 0xa4b93d",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 27749.799201590755,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0xe407f8d8cfd2b629abf9a1e4632ff2f24508f283",
+        "label": "Borrower 0xe407f8",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 26463.996679919088,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x39508f463692031ee7596acd53ec837b57b148d1",
+        "label": "Borrower 0x39508f",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 24227.187221910724,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x10df1cbf521a01c9dac20f667e74088a036ae5fd",
+        "label": "Borrower 0x10df1c",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 23945.61513739676,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0xf94241baa46171b724ed535314963b45f84c9f16",
+        "label": "Borrower 0xf94241",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 22538.402851298866,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0xccf6e34c8896220a80421bd189c781e0a7fcbfb4",
+        "label": "Borrower 0xccf6e3",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 22335.819903492607,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0xdeb175f9190c514d29f2040c3f91629e490332df",
+        "label": "Borrower 0xdeb175",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 18796.842337915987,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "market:0x94b823e6bd8ea533b4e33fbc307faea0b307301bc48763acc4d4aa4def7636cd",
+        "label": "WETH market 0x94b823",
+        "kind": "market",
+        "status": "observed",
+        "marketIds": [
+          "0x94b823e6bd8ea533b4e33fbc307faea0b307301bc48763acc4d4aa4def7636cd"
+        ],
+        "exposure": 18325.807963,
+        "exposureBasis": "Union of vault allocations in connected markets"
+      },
+      {
+        "id": "token:1:0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "label": "WETH",
+        "kind": "collateral",
+        "status": "observed",
+        "marketIds": [
+          "0x94b823e6bd8ea533b4e33fbc307faea0b307301bc48763acc4d4aa4def7636cd"
+        ],
+        "exposure": 18325.807963,
+        "exposureBasis": "Union of vault allocations in connected markets"
+      },
+      {
+        "id": "oracle:1:0x0f948cba8231db7898ef36a4212581ad7b1b4580",
+        "label": "Oracle 0x0F948C",
+        "kind": "oracle",
+        "status": "observed",
+        "marketIds": [
+          "0x94b823e6bd8ea533b4e33fbc307faea0b307301bc48763acc4d4aa4def7636cd"
+        ],
+        "exposure": 18325.807963,
+        "exposureBasis": "Union of vault allocations in connected markets"
+      },
+      {
+        "id": "borrower:1:0x89ad634673b542f237655406575b93ca499ed036",
+        "label": "Borrower 0x89ad63",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x94b823e6bd8ea533b4e33fbc307faea0b307301bc48763acc4d4aa4def7636cd",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 17976.101199928074,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0xe4cb78754d394da94d370b41ea1e02b29b6174c2",
+        "label": "Borrower 0xe4cb78",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 16833.42944852903,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0xc1de2b10763e101f675e939c82f907a74edcb98e",
+        "label": "Borrower 0xc1de2b",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 16218.800460157398,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x4bad838970fa794917645055e77bdcd2ed3e2b1a",
+        "label": "Borrower 0x4bad83",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x7e585a933ffe8443c371b4f8cfeb4430f5f6a14c2f32a898c26662c67a1cb8b8"
+        ],
+        "exposure": 14515.301507372695,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x779c31faa904efe1dd3747d04b68464d8d798886",
+        "label": "Borrower 0x779c31",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 11193.68523022549,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0xf4ef3af70936160b7bde4fd5cced7482467a5fb4",
+        "label": "Borrower 0xf4ef3a",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 10677.533553002855,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x3a8add16e564bde71654743e2ea961fbcfda4a65",
+        "label": "Borrower 0x3a8add",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 9596.22526251669,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x9f13f16249cf5ba267559309a241187746126e8f",
+        "label": "Borrower 0x9f13f1",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x7e585a933ffe8443c371b4f8cfeb4430f5f6a14c2f32a898c26662c67a1cb8b8"
+        ],
+        "exposure": 9099.634889936417,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x28a38ed9ae6b0afb7f78ff2de93a5b922d3120b8",
+        "label": "Borrower 0x28a38e",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 8583.694515393876,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0xb0f094c9e85a0ee7b89214a3a67efbc131022cc0",
+        "label": "Borrower 0xb0f094",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 8550.47768885816,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x8d774d65fad064a27d36acdf41c0dc4224c062d8",
+        "label": "Borrower 0x8d774d",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 8526.198715968796,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0xf7a534763709342ea79ca824166242cc099ad0ef",
+        "label": "Borrower 0xf7a534",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 8132.67158805259,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x3aa449ddaeff26a20f20440105ae91fdee23a7d4",
+        "label": "Borrower 0x3aa449",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x7e585a933ffe8443c371b4f8cfeb4430f5f6a14c2f32a898c26662c67a1cb8b8"
+        ],
+        "exposure": 7863.644145721426,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x721e3b6e8c3f8ef3d1a7605700cb3ba027ef8eba",
+        "label": "Borrower 0x721e3b",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 7389.279458969505,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x87fbc97a90899807c2e9181585d44d97248ecb1b",
+        "label": "Borrower 0x87fbc9",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 7138.609858946394,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x6efc65603a4062f87e6d4d6d4844ef85215995fd",
+        "label": "Borrower 0x6efc65",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 6830.6097943461,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x2e0055234ff209359f0b1d9885fa2b52aa5783af",
+        "label": "Borrower 0x2e0055",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x94b823e6bd8ea533b4e33fbc307faea0b307301bc48763acc4d4aa4def7636cd"
+        ],
+        "exposure": 6416.422599607157,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x764ec1ad93a8017711b2eee05a9846e5a78078f9",
+        "label": "Borrower 0x764ec1",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 5958.008791814926,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0xb65cbeb4d034d17f52870b4799f71a890610bb58",
+        "label": "Borrower 0xb65cbe",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 5769.825546145947,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0xd6abfd034fa7794b5e35227a88d27b9f9f6bf3ae",
+        "label": "Borrower 0xd6abfd",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 5528.671125723747,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x1eb322c016815ee5b29c071586c1b75be5934576",
+        "label": "Borrower 0x1eb322",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 5206.265847896637,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x2d4530fd3add9035f94ccf41b72c13b17e50c32b",
+        "label": "Borrower 0x2d4530",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+          "0x34377fc4f617c51818e92c79df31ff270c6a91bc94ad32e367fdf59b9f4ac5dd"
+        ],
+        "exposure": 5143.231483523982,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x5ecd68fa0f090fbc0d81a44fb6baddb3d1c07c23",
+        "label": "Borrower 0x5ecd68",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 4850.146648071121,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x1695a8ba3f3313f9a9ed075df09c9fcc60840ba1",
+        "label": "Borrower 0x1695a8",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 4372.402721064596,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x2a9a8736eab7a426e1d0ee5c1969620c68c20dac",
+        "label": "Borrower 0x2a9a87",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 4371.10207000643,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x11e62d33d895ec7659f2e0bb62f0c5ac9f7e9323",
+        "label": "Borrower 0x11e62d",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 4211.870155085249,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x862f26238d773fde4e29156f3bb7cf58ea4cd1af",
+        "label": "Borrower 0x862f26",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 4198.546067302564,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0xc25b165e7d6ec895452754ace315ec692583e011",
+        "label": "Borrower 0xc25b16",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 4107.052252279824,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0xe435bab862a7bd534ad5f5b6325af6f7281eec49",
+        "label": "Borrower 0xe435ba",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 3519.9852873727004,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x5c67afd3497f491e945d441f86e108a187ccb6ef",
+        "label": "Borrower 0x5c67af",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 3288.083090286355,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x90e7087b4cd31eaad7af187dac0e8409e08ff6a1",
+        "label": "Borrower 0x90e708",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 3184.5942614885425,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0xba3455bb7825543d7541e584e11281ba7cce4b1c",
+        "label": "Borrower 0xba3455",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 3014.158476605393,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0xd494019012e9df818562ae6bae3fd6f03b277fa9",
+        "label": "Borrower 0xd49401",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 3004.910930361498,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0xbae8faa4518e69744e4d22fd09a5ca0279aef6fb",
+        "label": "Borrower 0xbae8fa",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 2612.1511126422092,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x7c4b5155b00fde7db026c187f93510c96ddf0cbe",
+        "label": "Borrower 0x7c4b51",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 2580.3874990491195,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x5a5db513002b32c861db2637ba824a687effd50e",
+        "label": "Borrower 0x5a5db5",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 2408.106845650622,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x296a916c3c927aaf8e64f31346b1abd0c58f0309",
+        "label": "Borrower 0x296a91",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 2344.940574399432,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x1da97fed3c13db8b1c415f4eb768683cb6e82530",
+        "label": "Borrower 0x1da97f",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 2286.7018250542674,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x3e92d661bd5063f7df955d68e123b96d069069e9",
+        "label": "Borrower 0x3e92d6",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 2254.627717754585,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x4e4b7707f6a7d94061c3e4717ef80cd60077d5b9",
+        "label": "Borrower 0x4e4b77",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x94b823e6bd8ea533b4e33fbc307faea0b307301bc48763acc4d4aa4def7636cd",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 2148.861672391921,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x5908df927f743411c200eeafb8cdf3ef8c8a006b",
+        "label": "Borrower 0x5908df",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 2101.284939599409,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x48159a6ee1883a5f451cae178dcee3cc4ca9037d",
+        "label": "Borrower 0x48159a",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 2028.6228739493029,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x1391c4c4e845d0e5ae0f80d7072389b4d1d8b064",
+        "label": "Borrower 0x1391c4",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x94b823e6bd8ea533b4e33fbc307faea0b307301bc48763acc4d4aa4def7636cd",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 1910.3632289326376,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x53ae625c5a39609ffca98772b62f68bc1e70a153",
+        "label": "Borrower 0x53ae62",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0xbc99de6a88904cd0e69042ad6f266e63182801f030c636507c3caf590ffd84fe"
+        ],
+        "exposure": 1878.456041960463,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x301e61b8a508795dcb3cd269270bdffd723d6e0c",
+        "label": "Borrower 0x301e61",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 1688.8589617849937,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0xd867d9a0ad3677abeb43175168be226f72db2933",
+        "label": "Borrower 0xd867d9",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x7e585a933ffe8443c371b4f8cfeb4430f5f6a14c2f32a898c26662c67a1cb8b8",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 1675.543443865438,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x7d831aaeafe1dcc4aaa4066b2e08ce8312647eef",
+        "label": "Borrower 0x7d831a",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 1501.490549071043,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x38a2a29e3f93e7dd8f0bb3da6f1d5f3ced0ce1fa",
+        "label": "Borrower 0x38a2a2",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 1478.9571055380134,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x5191cb1ce57bc64c24ee7c2e86a4f81f3e6a219d",
+        "label": "Borrower 0x5191cb",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x94b823e6bd8ea533b4e33fbc307faea0b307301bc48763acc4d4aa4def7636cd"
+        ],
+        "exposure": 1440.6503014232296,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0xd5c32ed70bb9dfcae961afbf28dedd7bfc77f601",
+        "label": "Borrower 0xd5c32e",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 1431.0423514971337,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x9a3b0c4e50eb73a557056af72912c38f58a30a4a",
+        "label": "Borrower 0x9a3b0c",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0xbc99de6a88904cd0e69042ad6f266e63182801f030c636507c3caf590ffd84fe",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 1424.3452190174366,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0xb1d8b9cbc2aca90fb67b303848baec28c40eebcd",
+        "label": "Borrower 0xb1d8b9",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 1357.589635450326,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x9086896f717bd4dd6af4910a511c95ab45f31ccf",
+        "label": "Borrower 0x908689",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 1285.9925758667068,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x2c16bea212dd60a0938688bfea4565aec845c216",
+        "label": "Borrower 0x2c16be",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x94b823e6bd8ea533b4e33fbc307faea0b307301bc48763acc4d4aa4def7636cd"
+        ],
+        "exposure": 1277.1004529200072,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x6b4dbd6c234fb53e880ea93caa6275dcc925fca0",
+        "label": "Borrower 0x6b4dbd",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x09dc9e7eb5d8fc54b2bc41d1135fd4e99057a580f680321faeb90c7a21e631c1"
+        ],
+        "exposure": 1242.1955184083063,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "market:0xbc99de6a88904cd0e69042ad6f266e63182801f030c636507c3caf590ffd84fe",
+        "label": "cbBTC market 0xbc99de",
+        "kind": "market",
+        "status": "observed",
+        "marketIds": [
+          "0xbc99de6a88904cd0e69042ad6f266e63182801f030c636507c3caf590ffd84fe"
+        ],
+        "exposure": 1106.377284,
+        "exposureBasis": "Union of vault allocations in connected markets"
+      },
+      {
+        "id": "oracle:1:0x9f983115741d0f7f2eae07831415057ad3de34d2",
+        "label": "Oracle 0x9F9831",
+        "kind": "oracle",
+        "status": "observed",
+        "marketIds": [
+          "0xbc99de6a88904cd0e69042ad6f266e63182801f030c636507c3caf590ffd84fe"
+        ],
+        "exposure": 1106.377284,
+        "exposureBasis": "Union of vault allocations in connected markets"
+      },
+      {
+        "id": "borrower:1:0xbc362274617bd13791bcb3bd07119aff1a890fd1",
+        "label": "Borrower 0xbc3622",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 933.8922584027433,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x01a66607e2f13f89c1af094e7bac50082f094686",
+        "label": "Borrower 0x01a666",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 928.3858747504787,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x613a06370f1d20a2d58e24257b682eda04b992a4",
+        "label": "Borrower 0x613a06",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x7e585a933ffe8443c371b4f8cfeb4430f5f6a14c2f32a898c26662c67a1cb8b8",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 917.5848265738459,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0xad1c1f1f0c7099502fcb4fdf36aa770473a5f14b",
+        "label": "Borrower 0xad1c1f",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x94b823e6bd8ea533b4e33fbc307faea0b307301bc48763acc4d4aa4def7636cd"
+        ],
+        "exposure": 877.2226139331631,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x0e433f8f0c3e922a0dd9dc950721e92f303602f9",
+        "label": "Borrower 0x0e433f",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 721.4492100904838,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0xd0cae02373c612e7fa2643f6742d5264685d2c75",
+        "label": "Borrower 0xd0cae0",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 642.7984546518514,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0xe8928f9c63c8b27b7a62a204a486b3b1346bd998",
+        "label": "Borrower 0xe8928f",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 609.2191813150525,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x80575dd339b4b700ad2683e8dce0bdfac77233b1",
+        "label": "Borrower 0x80575d",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 562.1030554982603,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x4f3f374f742be74b04ce3e6361993b3c1dbc4247",
+        "label": "Borrower 0x4f3f37",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 557.8301854083444,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x5f84e7e92b56bd4b2f15c0de6574a91ae14a5145",
+        "label": "Borrower 0x5f84e7",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x7e585a933ffe8443c371b4f8cfeb4430f5f6a14c2f32a898c26662c67a1cb8b8",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 541.5352623840872,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0xcaafba1c551c8d514285eb0c30295de5aa23e406",
+        "label": "Borrower 0xcaafba",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 528.5680264893325,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0xebdda35ded08a40fb6784d0e5e57d22010c28730",
+        "label": "Borrower 0xebdda3",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 527.7865365001741,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x8615f699d884bcd412da523eb757f44ad815abc5",
+        "label": "Borrower 0x8615f6",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 502.3657497651999,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x27358f57abc348eebaf85a977d44ad16a0963e5f",
+        "label": "Borrower 0x27358f",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 428.8131108571414,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x45c0a75353eb6c3736328bb512463fcbaf216374",
+        "label": "Borrower 0x45c0a7",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x7e585a933ffe8443c371b4f8cfeb4430f5f6a14c2f32a898c26662c67a1cb8b8",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 423.0467924697935,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x26d5d60e85a1ec77ce03df078ec290b09a056516",
+        "label": "Borrower 0x26d5d6",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x7e585a933ffe8443c371b4f8cfeb4430f5f6a14c2f32a898c26662c67a1cb8b8",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 372.14610357846055,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x7f27910d8937a1253673cc0cce8ab2238685a30e",
+        "label": "Borrower 0x7f2791",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 308.7042887548601,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x034b3c17892f2b6a919058d6408a5c8f68f1d5a6",
+        "label": "Borrower 0x034b3c",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 207.889849653609,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0xb652d4f8a865d69d67009e5978eae802e987af0f",
+        "label": "Borrower 0xb652d4",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x94b823e6bd8ea533b4e33fbc307faea0b307301bc48763acc4d4aa4def7636cd"
+        ],
+        "exposure": 186.71073631531502,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0xb61f5de55db501c3e3b88b05cdcd7f68c33d3aac",
+        "label": "Borrower 0xb61f5d",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x7e585a933ffe8443c371b4f8cfeb4430f5f6a14c2f32a898c26662c67a1cb8b8"
+        ],
+        "exposure": 159.82269318243328,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x22f7f765432e4b1d92ac7c2070ea6d98530db672",
+        "label": "Borrower 0x22f7f7",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 127.14454212496761,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x7e9d8fcc606e3aab8a7b3da36e2b5a4b0f13f149",
+        "label": "Borrower 0x7e9d8f",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x94b823e6bd8ea533b4e33fbc307faea0b307301bc48763acc4d4aa4def7636cd"
+        ],
+        "exposure": 94.89212957278684,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x87dde6c7cf9220bad53a7ba7a6409d452141666e",
+        "label": "Borrower 0x87dde6",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x94b823e6bd8ea533b4e33fbc307faea0b307301bc48763acc4d4aa4def7636cd"
+        ],
+        "exposure": 80.35003250768018,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "market:0xfb8d92086861bae6fb778917afd1de5dbbc4ec70edfb636fed48238e225e7e3d",
+        "label": "FLHYon market 0xfb8d92",
+        "kind": "market",
+        "status": "observed",
+        "marketIds": [
+          "0xfb8d92086861bae6fb778917afd1de5dbbc4ec70edfb636fed48238e225e7e3d"
+        ],
+        "exposure": 49.511413,
+        "exposureBasis": "Union of vault allocations in connected markets"
+      },
+      {
+        "id": "token:1:0x54c1ff361b402f66c13107421e6a431c3375ef24",
+        "label": "FLHYon",
+        "kind": "collateral",
+        "status": "observed",
+        "marketIds": [
+          "0xfb8d92086861bae6fb778917afd1de5dbbc4ec70edfb636fed48238e225e7e3d"
+        ],
+        "exposure": 49.511413,
+        "exposureBasis": "Union of vault allocations in connected markets"
+      },
+      {
+        "id": "oracle:1:0xd703c55b871d999ea5435ac3721b19296ac249d1",
+        "label": "Oracle 0xD703c5",
+        "kind": "oracle",
+        "status": "observed",
+        "marketIds": [
+          "0xfb8d92086861bae6fb778917afd1de5dbbc4ec70edfb636fed48238e225e7e3d"
+        ],
+        "exposure": 49.511413,
+        "exposureBasis": "Union of vault allocations in connected markets"
+      },
+      {
+        "id": "borrower:1:0x1d9c525bc8c15c513b5e02be6c4ffef644db2b24",
+        "label": "Borrower 0x1d9c52",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x94b823e6bd8ea533b4e33fbc307faea0b307301bc48763acc4d4aa4def7636cd",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 47.935948006338464,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0xfeed46c11f57b7126a773eec6ae9ca7ae1c03c9a",
+        "label": "Borrower 0xfeed46",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0xfb8d92086861bae6fb778917afd1de5dbbc4ec70edfb636fed48238e225e7e3d",
+          "0x94b823e6bd8ea533b4e33fbc307faea0b307301bc48763acc4d4aa4def7636cd"
+        ],
+        "exposure": 44.639867149242555,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0xd6da52bd1a537f2c97938aa36891a65bd4370871",
+        "label": "Borrower 0xd6da52",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 32.983010063660345,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x9be29db8ec1bd28cad4286345fbbfb63d0f25388",
+        "label": "Borrower 0x9be29d",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 31.947225241350733,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0xf33fb50d37b4924a21e416fda7a26149965eceb9",
+        "label": "Borrower 0xf33fb5",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x94b823e6bd8ea533b4e33fbc307faea0b307301bc48763acc4d4aa4def7636cd"
+        ],
+        "exposure": 7.966591141054296,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x0e3a7e6f3b59c4395e2aab3d238638f9f8307175",
+        "label": "Borrower 0x0e3a7e",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 7.016936023644005,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x44d15af7b0a5651eaa4a2f653a352ca5763aaec3",
+        "label": "Borrower 0x44d15a",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x94b823e6bd8ea533b4e33fbc307faea0b307301bc48763acc4d4aa4def7636cd",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 3.117389308419262,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x284cd693585675cd4fc031daf50c47bb6ff19643",
+        "label": "Borrower 0x284cd6",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x7e585a933ffe8443c371b4f8cfeb4430f5f6a14c2f32a898c26662c67a1cb8b8",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 1.8594596261381418,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0xd8dd2706ef4ef9cd0fb7f54a1c5413aedd93121f",
+        "label": "Borrower 0xd8dd27",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x85252bb8485c99bba46fe149c7dd2aad83672640f53c630890673cf1848ba16e",
+          "0x7e585a933ffe8443c371b4f8cfeb4430f5f6a14c2f32a898c26662c67a1cb8b8",
+          "0x09dc9e7eb5d8fc54b2bc41d1135fd4e99057a580f680321faeb90c7a21e631c1",
+          "0xbc99de6a88904cd0e69042ad6f266e63182801f030c636507c3caf590ffd84fe",
+          "0xc498f4bfdda99e60ea8eb04c1e145654a70bc59da76ef9c6ed54a1314d78e5b5",
+          "0x34377fc4f617c51818e92c79df31ff270c6a91bc94ad32e367fdf59b9f4ac5dd"
+        ],
+        "exposure": 1.4348257368395358,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x187a2f53544271d0b81f4b59449e036e36b80c9d",
+        "label": "Borrower 0x187a2f",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x7e585a933ffe8443c371b4f8cfeb4430f5f6a14c2f32a898c26662c67a1cb8b8",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 1.1700060699108248,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0xd02f754cf6d631143d334973bd6f4f919a453049",
+        "label": "Borrower 0xd02f75",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 0.1986968084548075,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x34ed5f83b5df17e0fd0ad975ea392bda15f2bd55",
+        "label": "Borrower 0x34ed5f",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 0.08856174191494727,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x41b53a3d77d490e45022d15995539ae06f907263",
+        "label": "Borrower 0x41b53a",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 0.02570088370172222,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0xdb6990da6a4ce716d778bcf5e3e09bcfc5d4439c",
+        "label": "Borrower 0xdb6990",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 0.024046734315695335,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0xae9746a85f7e08cbfd08db00edf9b6c21f592fec",
+        "label": "Borrower 0xae9746",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 0.009059742903949636,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x71b44782a7b57bce810b02d2845544b91570d7e7",
+        "label": "Borrower 0x71b447",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x94b823e6bd8ea533b4e33fbc307faea0b307301bc48763acc4d4aa4def7636cd"
+        ],
+        "exposure": 0.0005020884497074033,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x941e18899c9c385ec4f8c1647d55432f747da416",
+        "label": "Borrower 0x941e18",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 0.0001120326471357553,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x31cba956168d210096676e7772a73b82d419b04e",
+        "label": "Borrower 0x31cba9",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+        ],
+        "exposure": 0.00006931796091299765,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0x353e58807a068f02099934f81c454eb4aae63b23",
+        "label": "Borrower 0x353e58",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 0.00005423335363195555,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      },
+      {
+        "id": "borrower:1:0xf4b54f37b2a6112ca6933ea24d6a83771633d340",
+        "label": "Borrower 0xf4b54f",
+        "kind": "borrower",
+        "status": "observed",
+        "marketIds": [
+          "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc"
+        ],
+        "exposure": 0.000019159686058501737,
+        "exposureBasis": "Vault share of this borrower’s debt"
+      }
+    ],
+    "warnings": [
+      "3 market oracle implementations have no feed composition in the indexer."
+    ],
+    "timelockSeconds": 604800,
+    "factory": "0xA9c3D3a366466Fa809d1Ae982Fb2c46E5fC41101",
+    "borrowerCount": 1635,
+    "uniqueBorrowers": 1493,
+    "marketHHI": 0.27100243475880637,
+    "effectiveMarkets": 3.6900037480844237,
+    "observation": {
+      "minBlock": 26165927,
+      "maxBlock": 26165947,
+      "ageSeconds": 262.26399993896484,
+      "atomic": false
+    },
+    "scope": "One Morpho V1-family vault and its direct lending markets, borrowers, oracle contracts and indexer-known feed/conversion-vault inputs. Conversion vault internals, feed implementation internals, custodians and token issuers are not recursively verified.",
+    "markets": [
+      {
+        "id": "0x85252bb8485c99bba46fe149c7dd2aad83672640f53c630890673cf1848ba16e",
+        "label": "weETH",
+        "collateralAddress": "0xCd5fE23C85820F7B72D0926FC9b05b43E359b7ee",
+        "allocated": 10740002.972353,
+        "weight": 0.16442038996000197,
+        "supply": 43815472.504743,
+        "borrow": 39498383.206973,
+        "liquidity": 4317089.29777,
+        "withdrawQueueIndex": 3,
+        "withdrawable": 4317089.29777,
+        "supplyFraction": 0.24511895817602788,
+        "lltv": 0.86,
+        "missingDebt": 0,
+        "complete": true,
+        "pricedDebt": 39498383.206976,
+        "oracle": {
+          "address": "0xa3A7A3ceFee206f9d7Fe00eC3C83324ED4228411",
+          "type": "ChainlinkOracleV2",
+          "data": {
+            "baseFeedOne": {
+              "address": "0x4270E1817576bbA4b640466bE79A408Ef128F828"
+            },
+            "baseFeedTwo": {
+              "address": "0xc0053f3FBcCD593758258334Dfce24C2A9A673aD"
+            },
+            "quoteFeedOne": {
+              "address": "0xc3866d726C204C0836E0677A31973c649888973D"
+            },
+            "quoteFeedTwo": null,
+            "baseOracleVault": null,
+            "quoteOracleVault": null
+          }
+        },
+        "block": 26165945,
+        "timestamp": 1791682403,
+        "borrowerCount": 7
+      },
+      {
+        "id": "0xfb8d92086861bae6fb778917afd1de5dbbc4ec70edfb636fed48238e225e7e3d",
+        "label": "FLHYon",
+        "collateralAddress": "0x54C1Ff361b402f66c13107421E6A431C3375EF24",
+        "allocated": 49.511413,
+        "weight": 7.579779869602018e-7,
+        "supply": 56.827016,
+        "borrow": 51.233323,
+        "liquidity": 5.593693,
+        "withdrawQueueIndex": 11,
+        "withdrawable": 5.593693,
+        "supplyFraction": 0.8712654030611073,
+        "lltv": 0.86,
+        "missingDebt": 0,
+        "complete": true,
+        "pricedDebt": 51.233323,
+        "oracle": {
+          "address": "0xD703c55B871D999eA5435aC3721B19296Ac249D1",
+          "type": "Unknown",
+          "data": null
+        },
+        "block": 26165945,
+        "timestamp": 1791682403,
+        "borrowerCount": 1
+      },
+      {
+        "id": "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+        "label": "WBTC",
+        "collateralAddress": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+        "allocated": 10115289.420703,
+        "weight": 0.154856552218057,
+        "supply": 128918758.012352,
+        "borrow": 116113676.599011,
+        "liquidity": 12805081.413341,
+        "withdrawQueueIndex": 2,
+        "withdrawable": 10115289.420703,
+        "supplyFraction": 0.07846251062807966,
+        "lltv": 0.86,
+        "missingDebt": 0,
+        "complete": true,
+        "pricedDebt": 116113676.59931995,
+        "oracle": {
+          "address": "0xDddd770BADd886dF3864029e4B377B5F6a2B6b83",
+          "type": "ChainlinkOracle",
+          "data": {
+            "baseFeedOne": {
+              "address": "0xfdFD9C85aD200c506Cf9e21F1FD8dd01932FBB23"
+            },
+            "baseFeedTwo": {
+              "address": "0xF4030086522a5bEEa4988F8cA5B36dbC97BeE88c"
+            },
+            "quoteFeedOne": {
+              "address": "0x8fFfFfd4AfB6115b954Bd326cbe7B4BA576818f6"
+            },
+            "quoteFeedTwo": null,
+            "baseOracleVault": null
+          }
+        },
+        "block": 26165945,
+        "timestamp": 1791682403,
+        "borrowerCount": 614
+      },
+      {
+        "id": "0x7e585a933ffe8443c371b4f8cfeb4430f5f6a14c2f32a898c26662c67a1cb8b8",
+        "label": "wstETH",
+        "collateralAddress": "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
+        "allocated": 1272062.913669,
+        "weight": 0.01947421065501721,
+        "supply": 12552103.539071,
+        "borrow": 11319644.059227,
+        "liquidity": 1232459.479844,
+        "withdrawQueueIndex": 5,
+        "withdrawable": 1232459.479844,
+        "supplyFraction": 0.10134260840897646,
+        "lltv": 0.86,
+        "missingDebt": 0,
+        "complete": true,
+        "pricedDebt": 11319644.059252005,
+        "oracle": {
+          "address": "0xe087AD7FE989cF63F8383579D160a20Ee7e69F9F",
+          "type": "ChainlinkOracleV2",
+          "data": {
+            "baseFeedOne": {
+              "address": "0x4F67e4d9BD67eFa28236013288737D39AeF48e79"
+            },
+            "baseFeedTwo": {
+              "address": "0xc0053f3FBcCD593758258334Dfce24C2A9A673aD"
+            },
+            "quoteFeedOne": null,
+            "quoteFeedTwo": null,
+            "baseOracleVault": null,
+            "quoteOracleVault": null
+          }
+        },
+        "block": 26165945,
+        "timestamp": 1791682403,
+        "borrowerCount": 52
+      },
+      {
+        "id": "0x09dc9e7eb5d8fc54b2bc41d1135fd4e99057a580f680321faeb90c7a21e631c1",
+        "label": "WBTC",
+        "collateralAddress": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+        "allocated": 164521.719833,
+        "weight": 0.0025186888124208383,
+        "supply": 1507679.701466,
+        "borrow": 1359756.110999,
+        "liquidity": 147923.590467,
+        "withdrawQueueIndex": 8,
+        "withdrawable": 147923.590467,
+        "supplyFraction": 0.10912246127146667,
+        "lltv": 0.86,
+        "missingDebt": 0,
+        "complete": true,
+        "pricedDebt": 1359756.111009,
+        "oracle": {
+          "address": "0xf1561bC4b3D1bA49053986Fb9ee88D4fE22d0Cf4",
+          "type": "Unknown",
+          "data": null
+        },
+        "block": 26165945,
+        "timestamp": 1791682403,
+        "borrowerCount": 20
+      },
+      {
+        "id": "0xbc99de6a88904cd0e69042ad6f266e63182801f030c636507c3caf590ffd84fe",
+        "label": "cbBTC",
+        "collateralAddress": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+        "allocated": 1106.377284,
+        "weight": 0.000016937703364370057,
+        "supply": 1053760.539324,
+        "borrow": 954662.396291,
+        "liquidity": 99098.143033,
+        "withdrawQueueIndex": 10,
+        "withdrawable": 1106.377284,
+        "supplyFraction": 0.0010499323543750785,
+        "lltv": 0.86,
+        "missingDebt": 0,
+        "complete": true,
+        "pricedDebt": 954662.3963009999,
+        "oracle": {
+          "address": "0x9F983115741D0F7F2EAE07831415057AD3de34d2",
+          "type": "Unknown",
+          "data": null
+        },
+        "block": 26165945,
+        "timestamp": 1791682403,
+        "borrowerCount": 20
+      },
+      {
+        "id": "0x94b823e6bd8ea533b4e33fbc307faea0b307301bc48763acc4d4aa4def7636cd",
+        "label": "WETH",
+        "collateralAddress": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+        "allocated": 18325.807963,
+        "weight": 0.0002805526683153635,
+        "supply": 9287716.366057,
+        "borrow": 8364558.570428,
+        "liquidity": 923157.795629,
+        "withdrawQueueIndex": 7,
+        "withdrawable": 18325.807963,
+        "supplyFraction": 0.0019731231274432237,
+        "lltv": 0.86,
+        "missingDebt": 0,
+        "complete": true,
+        "pricedDebt": 8364558.5704810005,
+        "oracle": {
+          "address": "0x0F948CBa8231Db7898ef36A4212581Ad7b1B4580",
+          "type": "ChainlinkOracleV2",
+          "data": {
+            "baseFeedOne": {
+              "address": "0xc0053f3FBcCD593758258334Dfce24C2A9A673aD"
+            },
+            "baseFeedTwo": null,
+            "quoteFeedOne": null,
+            "quoteFeedTwo": null,
+            "baseOracleVault": null,
+            "quoteOracleVault": null
+          }
+        },
+        "block": 26165945,
+        "timestamp": 1791682403,
+        "borrowerCount": 113
+      },
+      {
+        "id": "0xc498f4bfdda99e60ea8eb04c1e145654a70bc59da76ef9c6ed54a1314d78e5b5",
+        "label": "steakEURCV",
+        "collateralAddress": "0xbeef0C075Da5D01112AE5cF34d257074fB5DDB2f",
+        "allocated": 11878880.333358,
+        "weight": 0.18185564210053604,
+        "supply": 11965798.140491,
+        "borrow": 10787114.718231,
+        "liquidity": 1178683.42226,
+        "withdrawQueueIndex": 6,
+        "withdrawable": 1178683.42226,
+        "supplyFraction": 0.9927361462969294,
+        "lltv": 0.915,
+        "missingDebt": 0,
+        "complete": true,
+        "pricedDebt": 0,
+        "oracle": {
+          "address": "0xF3EFa46246d319381F5E7023Ae83F9C23C11b0F6",
+          "type": "ChainlinkOracleV2",
+          "data": {
+            "baseFeedOne": {
+              "address": "0xb49f677943BC038e9857d61E7d053CaA2C1734C1"
+            },
+            "baseFeedTwo": null,
+            "quoteFeedOne": null,
+            "quoteFeedTwo": null,
+            "baseOracleVault": {
+              "address": "0xbeef0C075Da5D01112AE5cF34d257074fB5DDB2f"
+            },
+            "quoteOracleVault": null
+          }
+        },
+        "block": 26165945,
+        "timestamp": 1791682403,
+        "borrowerCount": 11
+      },
+      {
+        "id": "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+        "label": "cbBTC",
+        "collateralAddress": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+        "allocated": 28046911.32332,
+        "weight": 0.42937456431108895,
+        "supply": 337246395.034672,
+        "borrow": 303989605.594372,
+        "liquidity": 33256789.4403,
+        "withdrawQueueIndex": 1,
+        "withdrawable": 28046911.32332,
+        "supplyFraction": 0.08316445108460395,
+        "lltv": 0.86,
+        "missingDebt": 0,
+        "complete": true,
+        "pricedDebt": 303989605.59460497,
+        "oracle": {
+          "address": "0xA6D6950c9F177F1De7f7757FB33539e3Ec60182a",
+          "type": "ChainlinkOracleV2",
+          "data": {
+            "baseFeedOne": {
+              "address": "0xF4030086522a5bEEa4988F8cA5B36dbC97BeE88c"
+            },
+            "baseFeedTwo": null,
+            "quoteFeedOne": null,
+            "quoteFeedTwo": null,
+            "baseOracleVault": null,
+            "quoteOracleVault": null
+          }
+        },
+        "block": 26165947,
+        "timestamp": 1791682427,
+        "borrowerCount": 437
+      },
+      {
+        "id": "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc",
+        "label": "wstETH",
+        "collateralAddress": "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
+        "allocated": 3041256.085645,
+        "weight": 0.04655906640409677,
+        "supply": 32597934.230407,
+        "borrow": 29383589.583442,
+        "liquidity": 3214344.646965,
+        "withdrawQueueIndex": 4,
+        "withdrawable": 3041256.085645,
+        "supplyFraction": 0.09329597587837787,
+        "lltv": 0.86,
+        "missingDebt": 0,
+        "complete": true,
+        "pricedDebt": 29383589.58361394,
+        "oracle": {
+          "address": "0x48F7E36EB6B826B2dF4B2E630B62Cd25e89E40e2",
+          "type": "ChainlinkOracle",
+          "data": {
+            "baseFeedOne": {
+              "address": "0x4F67e4d9BD67eFa28236013288737D39AeF48e79"
+            },
+            "baseFeedTwo": null,
+            "quoteFeedOne": {
+              "address": "0x986b5E1e1755e3C2440e960477f25201B0a8bbD4"
+            },
+            "quoteFeedTwo": null,
+            "baseOracleVault": null
+          }
+        },
+        "block": 26165945,
+        "timestamp": 1791682403,
+        "borrowerCount": 354
+      },
+      {
+        "id": "0x34377fc4f617c51818e92c79df31ff270c6a91bc94ad32e367fdf59b9f4ac5dd",
+        "label": "weETH",
+        "collateralAddress": "0xCd5fE23C85820F7B72D0926FC9b05b43E359b7ee",
+        "allocated": 41977.30782,
+        "weight": 0.0006426371891146055,
+        "supply": 422574.033724,
+        "borrow": 383967.224758,
+        "liquidity": 38606.808966,
+        "withdrawQueueIndex": 9,
+        "withdrawable": 38606.808966,
+        "supplyFraction": 0.09933716809352527,
+        "lltv": 0.77,
+        "missingDebt": 0,
+        "complete": true,
+        "pricedDebt": 383967.224761,
+        "oracle": {
+          "address": "0xa3A7A3ceFee206f9d7Fe00eC3C83324ED4228411",
+          "type": "ChainlinkOracleV2",
+          "data": {
+            "baseFeedOne": {
+              "address": "0x4270E1817576bbA4b640466bE79A408Ef128F828"
+            },
+            "baseFeedTwo": {
+              "address": "0xc0053f3FBcCD593758258334Dfce24C2A9A673aD"
+            },
+            "quoteFeedOne": {
+              "address": "0xc3866d726C204C0836E0677A31973c649888973D"
+            },
+            "quoteFeedTwo": null,
+            "baseOracleVault": null,
+            "quoteOracleVault": null
+          }
+        },
+        "block": 26165945,
+        "timestamp": 1791682403,
+        "borrowerCount": 6
+      }
+    ]
+  },
+  "result": {
+    "settings": {
+      "positionUsd": 1000000,
+      "collateralShock": 0.35,
+      "recoveryDiscount": 0.05,
+      "lossLimit": 0.1,
+      "targetId": "family:BTC",
+      "oracleResponse": "follows",
+      "incident": "collateral-decline",
+      "otherWithdrawalsUsd": 0,
+      "eventProbability": null,
+      "exitCostUsd": null
+    },
+    "rows": [
+      {
+        "id": "0x85252bb8485c99bba46fe149c7dd2aad83672640f53c630890673cf1848ba16e",
+        "label": "weETH",
+        "affected": false,
+        "allocation": 10740002.972353,
+        "positionExposure": 164467.24263823917,
+        "marketShortfall": {
+          "low": 0,
+          "high": 0
+        },
+        "vaultLoss": {
+          "low": 0,
+          "high": 0
+        },
+        "positionLoss": {
+          "low": 0,
+          "high": 0
+        },
+        "liquidatableDebt": 0,
+        "unknownHealthDebt": 0,
+        "unpricedDebt": 0,
+        "borrowerCount": 7,
+        "withdrawable": 4317089.29777,
+        "borrowers": [
+          {
+            "address": "0xd8dd2706ef4ef9cd0fb7f54a1c5413aedd93121f",
+            "debt": 0.939157,
+            "economicValue": 4.384476763804638,
+            "shortfall": 0,
+            "health": 4.010218376693141
+          },
+          {
+            "address": "0x0d948ec223d11586ffd4940dc176345233d842c1",
+            "debt": 287392.653346,
+            "economicValue": 692432.1944137343,
+            "shortfall": 0,
+            "health": 2.0696173525678554
+          },
+          {
+            "address": "0x38b94c3806c09ac3191b21745e21a560b3cf38aa",
+            "debt": 50069.523034,
+            "economicValue": 75267.38188020274,
+            "shortfall": 0,
+            "health": 1.2912841562975614
+          },
+          {
+            "address": "0x9891525981af3ea556b4da5052f6ddc1f2fdd63f",
+            "debt": 5431.010497,
+            "economicValue": 8003.814571643814,
+            "shortfall": 0,
+            "health": 1.265915866974985
+          },
+          {
+            "address": "0xe3aa1e551c9ee0ac8979de669da5032ef60b22e9",
+            "debt": 907271.121907,
+            "economicValue": 1359850.0299034785,
+            "shortfall": 0,
+            "health": 1.2874856419340504
+          },
+          {
+            "address": "0xb554b9856dfdbf52b98e0e4d2b981c34e20e1dab",
+            "debt": 293586.964058,
+            "economicValue": 553945.7555309874,
+            "shortfall": 0,
+            "health": 1.620760851623902
+          },
+          {
+            "address": "0xf0bb20865277abd641a307ece5ee04e79073416c",
+            "debt": 37954630.994977,
+            "economicValue": 55127412.8447267,
+            "shortfall": 0,
+            "health": 1.2476457882293084
+          }
+        ]
+      },
+      {
+        "id": "0xfb8d92086861bae6fb778917afd1de5dbbc4ec70edfb636fed48238e225e7e3d",
+        "label": "FLHYon",
+        "affected": false,
+        "allocation": 49.511413,
+        "positionExposure": 0.7581939778038105,
+        "marketShortfall": {
+          "low": 0,
+          "high": 0
+        },
+        "vaultLoss": {
+          "low": 0,
+          "high": 0
+        },
+        "positionLoss": {
+          "low": 0,
+          "high": 0
+        },
+        "liquidatableDebt": 0,
+        "unknownHealthDebt": 0,
+        "unpricedDebt": 0,
+        "borrowerCount": 1,
+        "withdrawable": 5.593693,
+        "borrowers": [
+          {
+            "address": "0xfeed46c11f57b7126a773eec6ae9ca7ae1c03c9a",
+            "debt": 51.233323,
+            "economicValue": 90.4817347528103,
+            "shortfall": 0,
+            "health": 1.516250443095405
+          }
+        ]
+      },
+      {
+        "id": "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+        "label": "WBTC",
+        "affected": true,
+        "allocation": 10115289.420703,
+        "positionExposure": 154900.6796174371,
+        "marketShortfall": {
+          "low": 2327548.900447151,
+          "high": 2327548.900447151
+        },
+        "vaultLoss": {
+          "low": 182625.33033870973,
+          "high": 182625.33033870973
+        },
+        "positionLoss": {
+          "low": 2796.636518073949,
+          "high": 2796.636518073949
+        },
+        "liquidatableDebt": 49437337.354799986,
+        "unknownHealthDebt": 0,
+        "unpricedDebt": 0,
+        "borrowerCount": 614,
+        "withdrawable": 10115289.420703,
+        "borrowers": [
+          {
+            "address": "0xeb9b0a7844ed7be427fd3d7d23765b1901ee7c20",
+            "debt": 8939756.567495,
+            "economicValue": 12723975.116040958,
+            "shortfall": 1082701.9333397076,
+            "health": 0.7952140587645061
+          },
+          {
+            "address": "0xbdc3c47122d033ccd1ad7b986071187be597ff72",
+            "debt": 6821260.601477,
+            "economicValue": 10058131.605416944,
+            "shortfall": 610364.3351320373,
+            "health": 0.8238337949009286
+          },
+          {
+            "address": "0x638f189825aaa4d5f85fd2e3fe38620df2f7f5f0",
+            "debt": 1725222.40723,
+            "economicValue": 2484972.5148647088,
+            "shortfall": 190751.8793010423,
+            "health": 0.8047545313386447
+          },
+          {
+            "address": "0x34a8b0660ef835d9d6cfc5770e15e3fac75049bc",
+            "debt": 2217181.316033,
+            "economicValue": 3405476.2035144726,
+            "shortfall": 114299.76036281325,
+            "health": 0.8581507196998034
+          },
+          {
+            "address": "0x792512632e1262be2c102508a6b3f29c0fc509c6",
+            "debt": 1285595.362683,
+            "economicValue": 1976557.6547270722,
+            "shortfall": 65071.010889032856,
+            "health": 0.8589979374386935
+          },
+          {
+            "address": "0x1e6c4f1be2354bb83c35a2cc0ecf7ba4cbc7643e",
+            "debt": 576261.427809,
+            "economicValue": 844741.6213123945,
+            "shortfall": 54633.476648596465,
+            "health": 0.8190139013573708
+          },
+          {
+            "address": "0x2425ccb741e67d36553a5a9a84e0b5b009bc5a9d",
+            "debt": 534180.628455,
+            "economicValue": 779285.900446278,
+            "shortfall": 52971.58492942329,
+            "health": 0.8150713264529625
+          },
+          {
+            "address": "0x4bad838970fa794917645055e77bdcd2ed3e2b1a",
+            "debt": 150227.977503,
+            "economicValue": 204551.82214160383,
+            "shortfall": 23917.227330559646,
+            "health": 0.76074562495981
+          }
+        ]
+      },
+      {
+        "id": "0x7e585a933ffe8443c371b4f8cfeb4430f5f6a14c2f32a898c26662c67a1cb8b8",
+        "label": "wstETH",
+        "affected": false,
+        "allocation": 1272062.913669,
+        "positionExposure": 19479.75996022178,
+        "marketShortfall": {
+          "low": 0,
+          "high": 0
+        },
+        "vaultLoss": {
+          "low": 0,
+          "high": 0
+        },
+        "positionLoss": {
+          "low": 0,
+          "high": 0
+        },
+        "liquidatableDebt": 0,
+        "unknownHealthDebt": 0,
+        "unpricedDebt": 0,
+        "borrowerCount": 52,
+        "withdrawable": 1232459.479844,
+        "borrowers": [
+          {
+            "address": "0xd8dd2706ef4ef9cd0fb7f54a1c5413aedd93121f",
+            "debt": 0.929557,
+            "economicValue": 4.332852794993621,
+            "shortfall": 0,
+            "health": 4.001484965419012
+          },
+          {
+            "address": "0x08213a5638109a962693499fb306ea874ef5ac38",
+            "debt": 309.561144,
+            "economicValue": 718.751426111048,
+            "shortfall": 0,
+            "health": 1.9932219181875097
+          },
+          {
+            "address": "0x187a2f53544271d0b81f4b59449e036e36b80c9d",
+            "debt": 11.545042,
+            "economicValue": 607.1865185191225,
+            "shortfall": 0,
+            "health": 45.1491918487607
+          },
+          {
+            "address": "0x1eb1fcf6d44a2fd93a06d72be1ebec238acda75b",
+            "debt": 27902.426348,
+            "economicValue": 70317.45286846539,
+            "shortfall": 0,
+            "health": 2.1634384231809602
+          },
+          {
+            "address": "0x1f55426f04dc1d2ee921def522615ca77834ceb7",
+            "debt": 27482.721655,
+            "economicValue": 78066.83509225256,
+            "shortfall": 0,
+            "health": 2.4385418422053293
+          },
+          {
+            "address": "0x26d5d60e85a1ec77ce03df078ec290b09a056516",
+            "debt": 2468.388404,
+            "economicValue": 3926.299573506516,
+            "shortfall": 0,
+            "health": 1.3655050591543778
+          },
+          {
+            "address": "0x284cd693585675cd4fc031daf50c47bb6ff19643",
+            "debt": 10.078264,
+            "economicValue": 67.15086145219831,
+            "shortfall": 0,
+            "health": 5.719910528241768
+          },
+          {
+            "address": "0x36e8f1b6c98e23f13a395f9f8847789f71d53661",
+            "debt": 17762.05315,
+            "economicValue": 50503.4977537188,
+            "shortfall": 0,
+            "health": 2.4409094590160034
+          }
+        ]
+      },
+      {
+        "id": "0x09dc9e7eb5d8fc54b2bc41d1135fd4e99057a580f680321faeb90c7a21e631c1",
+        "label": "WBTC",
+        "affected": true,
+        "allocation": 164521.719833,
+        "positionExposure": 2519.4065294663746,
+        "marketShortfall": {
+          "low": 537.528126577713,
+          "high": 537.528126577713
+        },
+        "vaultLoss": {
+          "low": 58.65639217480052,
+          "high": 58.65639217480052
+        },
+        "positionLoss": {
+          "low": 0.898235792758173,
+          "high": 0.898235792758173
+        },
+        "liquidatableDebt": 5426.614646,
+        "unknownHealthDebt": 0,
+        "unpricedDebt": 0,
+        "borrowerCount": 20,
+        "withdrawable": 147923.590467,
+        "borrowers": [
+          {
+            "address": "0xab24656d8cbd500c24a0795cb122e02ab8ebe783",
+            "debt": 5426.614646,
+            "economicValue": 7917.5490193073465,
+            "shortfall": 537.528126577713,
+            "health": 0.816792718744857
+          },
+          {
+            "address": "0xd8dd2706ef4ef9cd0fb7f54a1c5413aedd93121f",
+            "debt": 0.928955,
+            "economicValue": 4.443130856578099,
+            "shortfall": 0,
+            "health": 2.6775922784203754
+          },
+          {
+            "address": "0x01b3ba0aa49c3daa72e25031bcd1b4029cf8eaf7",
+            "debt": 821574.770797,
+            "economicValue": 1527619.6243703098,
+            "shortfall": 0,
+            "health": 1.0409220632944072
+          },
+          {
+            "address": "0x1ffe3187dcda150f534474daab80a0dbe173b0b9",
+            "debt": 2806.273138,
+            "economicValue": 10152.769371565579,
+            "shortfall": 0,
+            "health": 2.025371344417224
+          },
+          {
+            "address": "0x2ab8f0925d01ed17887f882ad2aabfe33bde0011",
+            "debt": 7878.801205,
+            "economicValue": 25968.79110450783,
+            "shortfall": 0,
+            "health": 1.8451924528647883
+          },
+          {
+            "address": "0x2ea767290161be020c6a494c16e7b04a9a3bfa4e",
+            "debt": 830.753542,
+            "economicValue": 1626.6041972142532,
+            "shortfall": 0,
+            "health": 1.0961242003913114
+          },
+          {
+            "address": "0x5320f30f1a0455d2f8e6f37c04144a209e9ff311",
+            "debt": 25058.221617,
+            "economicValue": 91366.7628660272,
+            "shortfall": 0,
+            "health": 2.0412118062997897
+          },
+          {
+            "address": "0x56891e248c384d7643411480ed372f7423813c35",
+            "debt": 0.000246,
+            "economicValue": 0.0024849725148647084,
+            "shortfall": 0,
+            "health": 5.653626016260163
+          }
+        ]
+      },
+      {
+        "id": "0xbc99de6a88904cd0e69042ad6f266e63182801f030c636507c3caf590ffd84fe",
+        "label": "cbBTC",
+        "affected": true,
+        "allocation": 1106.377284,
+        "positionExposure": 16.942529875035806,
+        "marketShortfall": {
+          "low": 22007.08582898588,
+          "high": 22007.08582898588
+        },
+        "vaultLoss": {
+          "low": 23.105951437361572,
+          "high": 23.105951437361572
+        },
+        "positionLoss": {
+          "low": 0.35383343293464165,
+          "high": 0.35383343293464165
+        },
+        "liquidatableDebt": 788374.395645,
+        "unknownHealthDebt": 0,
+        "unpricedDebt": 0,
+        "borrowerCount": 20,
+        "withdrawable": 1106.377284,
+        "borrowers": [
+          {
+            "address": "0xd11a33d9f86b4cd64f65afe413b8b8d8a5352f7b",
+            "debt": 115022.850151,
+            "economicValue": 166073.94549945657,
+            "shortfall": 12472.188805085578,
+            "health": 0.8071535301061991
+          },
+          {
+            "address": "0x9042fd33b444234291d8085bd9f879225e53f8fe",
+            "debt": 55633.877574,
+            "economicValue": 74654.21951433149,
+            "shortfall": 9534.897023900303,
+            "health": 0.7501598232631579
+          },
+          {
+            "address": "0xd8dd2706ef4ef9cd0fb7f54a1c5413aedd93121f",
+            "debt": 0.928896,
+            "economicValue": 4.476762557978412,
+            "shortfall": 0,
+            "health": 2.6942363407744243
+          },
+          {
+            "address": "0x180e3a4f2b8ae180201c5b8edc6321ddf6e74295",
+            "debt": 1587.197419,
+            "economicValue": 2682.168051808659,
+            "shortfall": 0,
+            "health": 0.9446997669903593
+          },
+          {
+            "address": "0x1878ea9134d500a3cef3e89589eca3656eecf48f",
+            "debt": 0.00101,
+            "economicValue": 0.008294909316246825,
+            "shortfall": 0,
+            "health": 4.590995049504951
+          },
+          {
+            "address": "0x36eb3ed8c49cd71de01e54df7d54057c9b9c601a",
+            "debt": 510397.472733,
+            "economicValue": 912665.7865045201,
+            "shortfall": 0,
+            "health": 0.999636319230154
+          },
+          {
+            "address": "0x4c9236d458600c065dd61cc262ca5f99b05c3599",
+            "debt": 1041.243748,
+            "economicValue": 2536.0416113299284,
+            "shortfall": 0,
+            "health": 1.3615786724800578
+          },
+          {
+            "address": "0x52ee91c6dcf65712685cc7df9a2beeb3c4c8efa7",
+            "debt": 0.00001,
+            "economicValue": 0.0016589818632493651,
+            "shortfall": 0,
+            "health": 92.73809999999999
+          }
+        ]
+      },
+      {
+        "id": "0x94b823e6bd8ea533b4e33fbc307faea0b307301bc48763acc4d4aa4def7636cd",
+        "label": "WETH",
+        "affected": false,
+        "allocation": 18325.807963,
+        "positionExposure": 280.63261365487017,
+        "marketShortfall": {
+          "low": 0.000032555432491078536,
+          "high": 0.000032555432491078536
+        },
+        "vaultLoss": {
+          "low": 6.423587677206362e-8,
+          "high": 6.423587677206362e-8
+        },
+        "positionLoss": {
+          "low": 9.83677337738802e-10,
+          "high": 9.83677337738802e-10
+        },
+        "liquidatableDebt": 0.000035,
+        "unknownHealthDebt": 0,
+        "unpricedDebt": 0,
+        "borrowerCount": 113,
+        "withdrawable": 18325.807963,
+        "borrowers": [
+          {
+            "address": "0xbcb1da639c56200aa4125a285ebc1dc60bdef56b",
+            "debt": 0.000035,
+            "economicValue": 0.0000025732289567594355,
+            "shortfall": 0.000032555432491078536,
+            "health": 0.04914285714285714
+          },
+          {
+            "address": "0xfeed46c11f57b7126a773eec6ae9ca7ae1c03c9a",
+            "debt": 1.036598,
+            "economicValue": 4.387056148471768,
+            "shortfall": 0,
+            "health": 3.633915191810133
+          },
+          {
+            "address": "0x017c5e471b5a84d924e89c8ab2a1a64a145a9356",
+            "debt": 0.242107,
+            "economicValue": 0.6807820592567523,
+            "shortfall": 0,
+            "health": 2.414416600924385
+          },
+          {
+            "address": "0x030f4cb97cddb4d02ca8f07575a77fb0febdf224",
+            "debt": 642.116229,
+            "economicValue": 908.480821020181,
+            "shortfall": 0,
+            "health": 1.2148261960530515
+          },
+          {
+            "address": "0x0427f8bd5a8d4cb9fcc8f130a917e9953a23825a",
+            "debt": 11266.189521,
+            "economicValue": 55141.566788563934,
+            "shortfall": 0,
+            "health": 4.202561530521585
+          },
+          {
+            "address": "0x065fc1ad13164bec0929d5031430940467f0e883",
+            "debt": 1022.662226,
+            "economicValue": 2506.4348540256333,
+            "shortfall": 0,
+            "health": 2.1044384965090126
+          },
+          {
+            "address": "0x06edcff68d67cd15a2e2c3df97b03dd5169cacfd",
+            "debt": 0.000072,
+            "economicValue": 0.006028493002356114,
+            "shortfall": 0,
+            "health": 71.88166666666666
+          },
+          {
+            "address": "0x0f7707db61e6add7c377757c0aa8068a58e389cc",
+            "debt": 0.000001,
+            "economicValue": 5.469772264878316,
+            "shortfall": 0,
+            "health": 4696574.380000001
+          }
+        ]
+      },
+      {
+        "id": "0xc498f4bfdda99e60ea8eb04c1e145654a70bc59da76ef9c6ed54a1314d78e5b5",
+        "label": "steakEURCV",
+        "affected": false,
+        "allocation": 11878880.333358,
+        "positionExposure": 181907.4630692555,
+        "marketShortfall": {
+          "low": 0,
+          "high": 10787114.718231
+        },
+        "vaultLoss": {
+          "low": 0,
+          "high": 10708758.695039531
+        },
+        "positionLoss": {
+          "low": 0,
+          "high": 163988.78279505303
+        },
+        "liquidatableDebt": 0,
+        "unknownHealthDebt": 0,
+        "unpricedDebt": 10787114.718236001,
+        "borrowerCount": 11,
+        "withdrawable": 1178683.42226,
+        "borrowers": [
+          {
+            "address": "0x90e82b354c57378590c7078154e72db57c7d0bfe",
+            "debt": 4947001.169917,
+            "economicValue": null,
+            "shortfall": null,
+            "health": 1.1139651953161451
+          },
+          {
+            "address": "0xa3548280cf7fd7be4fa1508f15ff125a862bd805",
+            "debt": 2928804.988715,
+            "economicValue": null,
+            "shortfall": null,
+            "health": 1.144914977258522
+          },
+          {
+            "address": "0x06fb1b79204268cea08a82cef4b5f8236f38c410",
+            "debt": 1760831.671817,
+            "economicValue": null,
+            "shortfall": null,
+            "health": 1.1484350763715099
+          },
+          {
+            "address": "0xde76b075e7c5cdb32f4d5fee8d5d3e0c2aeab82c",
+            "debt": 402201.268035,
+            "economicValue": null,
+            "shortfall": null,
+            "health": 1.1765904142687569
+          },
+          {
+            "address": "0xfbb9775e5e55b262c7180c195632622fb4443072",
+            "debt": 268366.314714,
+            "economicValue": null,
+            "shortfall": null,
+            "health": 1.1261252895655958
+          },
+          {
+            "address": "0xe8f37040325d9abcdbf077945eda152fadc3824e",
+            "debt": 161320.2113,
+            "economicValue": null,
+            "shortfall": null,
+            "health": 1.1417376393412895
+          },
+          {
+            "address": "0x8c1ba708c003f90fb21f36b9c069e15ff5b184ce",
+            "debt": 158405.57025,
+            "economicValue": null,
+            "shortfall": null,
+            "health": 1.0751429637368766
+          },
+          {
+            "address": "0x9f0f855a7370cc30e24924258214681a782a34ac",
+            "debt": 157142.518339,
+            "economicValue": null,
+            "shortfall": null,
+            "health": 1.0584738578583637
+          }
+        ]
+      },
+      {
+        "id": "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+        "label": "cbBTC",
+        "affected": true,
+        "allocation": 28046911.32332,
+        "positionExposure": 429496.9174347484,
+        "marketShortfall": {
+          "low": 1875991.6193312483,
+          "high": 1875991.6193312483
+        },
+        "vaultLoss": {
+          "low": 156015.81326100056,
+          "high": 156015.81326100056
+        },
+        "positionLoss": {
+          "low": 2389.151165139531,
+          "high": 2389.151165139531
+        },
+        "liquidatableDebt": 29817309.77641801,
+        "unknownHealthDebt": 0,
+        "unpricedDebt": 0,
+        "borrowerCount": 437,
+        "withdrawable": 28046911.32332,
+        "borrowers": [
+          {
+            "address": "0xeb9b0a7844ed7be427fd3d7d23765b1901ee7c20",
+            "debt": 5231671.118872,
+            "economicValue": 7693203.83258415,
+            "shortfall": 481117.752251287,
+            "health": 0.8215248366803724
+          },
+          {
+            "address": "0xf37414de43b7d79859d30ec39c6bc0b3c7672135",
+            "debt": 2097218.459465,
+            "economicValue": 2893425.56862709,
+            "shortfall": 310528.1708377716,
+            "health": 0.7707659783233212
+          },
+          {
+            "address": "0x34a8b0660ef835d9d6cfc5770e15e3fac75049bc",
+            "debt": 6790948.73652,
+            "economicValue": 10499061.561528027,
+            "shortfall": 307778.2222764436,
+            "health": 0.8637218842195526
+          },
+          {
+            "address": "0x0932b946915c09ae02b6c41ec8ead57c11168219",
+            "debt": 4982973.941998,
+            "economicValue": 7638549.510396767,
+            "shortfall": 266169.61932799686,
+            "health": 0.8563990467263466
+          },
+          {
+            "address": "0x7376b927836243f21b327164055891eb4290f213",
+            "debt": 2738292.154928,
+            "economicValue": 4034998.1321607335,
+            "shortfall": 246680.8083187472,
+            "health": 0.8232229119143081
+          },
+          {
+            "address": "0x2d85694d1a5f7b8bf3abdd941ecf2b129e7cc261",
+            "debt": 1002612.884545,
+            "economicValue": 1494371.437540539,
+            "shortfall": 79838.52186371712,
+            "health": 0.8326819873827248
+          },
+          {
+            "address": "0xd11615dd15b5c74d328c499b9d9aa842e2751dbf",
+            "debt": 223280.405605,
+            "economicValue": 290067.0064544438,
+            "shortfall": 44164.02911938095,
+            "health": 0.7257743473838983
+          },
+          {
+            "address": "0x51b7914b95372d478a3a861a367fd5c4d7742a61",
+            "debt": 376253.661851,
+            "economicValue": 548499.6517197335,
+            "shortfall": 37555.126914064516,
+            "health": 0.8144220326267387
+          }
+        ]
+      },
+      {
+        "id": "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc",
+        "label": "wstETH",
+        "affected": false,
+        "allocation": 3041256.085645,
+        "positionExposure": 46572.333718191985,
+        "marketShortfall": {
+          "low": 0,
+          "high": 0
+        },
+        "vaultLoss": {
+          "low": 0,
+          "high": 0
+        },
+        "positionLoss": {
+          "low": 0,
+          "high": 0
+        },
+        "liquidatableDebt": 0,
+        "unknownHealthDebt": 0,
+        "unpricedDebt": 0,
+        "borrowerCount": 354,
+        "withdrawable": 3041256.085645,
+        "borrowers": [
+          {
+            "address": "0x71d24c15efabf1080b6e4510c7867377e39b2c8d",
+            "debt": 0.000001,
+            "economicValue": 0.0030599498655643114,
+            "shortfall": 0,
+            "health": 2615.26
+          },
+          {
+            "address": "0x027c348c69fcf6f311334c7bedef7ddf7eeffff9",
+            "debt": 2.09465,
+            "economicValue": 4.340516031129242,
+            "shortfall": 0,
+            "health": 1.7715026949609718
+          },
+          {
+            "address": "0x3258c5ede556bc73d8b35a029efe65bf98ce1e10",
+            "debt": 0.000001,
+            "economicValue": 0.6245346807380205,
+            "shortfall": 0,
+            "health": 533910.3600000001
+          },
+          {
+            "address": "0x0190c23c42502d12fb7c47b2c84d7322496188c5",
+            "debt": 4.472873,
+            "economicValue": 18.736040422140615,
+            "shortfall": 0,
+            "health": 3.580990745768995
+          },
+          {
+            "address": "0x01a66607e2f13f89c1af094e7bac50082f094686",
+            "debt": 3809.251159,
+            "economicValue": 5843.184282122744,
+            "shortfall": 0,
+            "health": 1.3113600402267411
+          },
+          {
+            "address": "0x023688771e6b8a4099667dd0159eb59da9fe43b3",
+            "debt": 158490.831718,
+            "economicValue": 234388.4783901418,
+            "shortfall": 0,
+            "health": 1.2642823820955627
+          },
+          {
+            "address": "0x02d01fe9f75773077a68323d6f4d66505aa04748",
+            "debt": 23855.51639,
+            "economicValue": 70320.09047867991,
+            "shortfall": 0,
+            "health": 2.520011772995202
+          },
+          {
+            "address": "0x02f90757814a20d96d687d2c7c2fa8503e2cfa36",
+            "debt": 898.987107,
+            "economicValue": 3843.7979472000065,
+            "shortfall": 0,
+            "health": 3.6552665992794933
+          }
+        ]
+      },
+      {
+        "id": "0x34377fc4f617c51818e92c79df31ff270c6a91bc94ad32e367fdf59b9f4ac5dd",
+        "label": "weETH",
+        "affected": false,
+        "allocation": 41977.30782,
+        "positionExposure": 642.820312834554,
+        "marketShortfall": {
+          "low": 0,
+          "high": 0
+        },
+        "vaultLoss": {
+          "low": 0,
+          "high": 0
+        },
+        "positionLoss": {
+          "low": 0,
+          "high": 0
+        },
+        "liquidatableDebt": 0,
+        "unknownHealthDebt": 0,
+        "unpricedDebt": 0,
+        "borrowerCount": 6,
+        "withdrawable": 38606.808966,
+        "borrowers": [
+          {
+            "address": "0xd8dd2706ef4ef9cd0fb7f54a1c5413aedd93121f",
+            "debt": 0.928643,
+            "economicValue": 4.341965249362062,
+            "shortfall": 0,
+            "health": 3.595988049228821
+          },
+          {
+            "address": "0x2d4530fd3add9035f94ccf41b72c13b17e50c32b",
+            "debt": 13020.461117,
+            "economicValue": 43921.198481505824,
+            "shortfall": 0,
+            "health": 2.594349954941768
+          },
+          {
+            "address": "0x54fa0fb758a8c8b78c80f92fd28da6c7b4c11374",
+            "debt": 2.033414,
+            "economicValue": 6.504636810596961,
+            "shortfall": 0,
+            "health": 2.460242877249788
+          },
+          {
+            "address": "0x71c7033aa9f6c67da295975133de1fc44edb6310",
+            "debt": 527.07656,
+            "economicValue": 1902.914459400048,
+            "shortfall": 0,
+            "health": 2.7766830178143382
+          },
+          {
+            "address": "0xcf7e7c56614b6e22b0043895a37e3858971ec904",
+            "debt": 370406.659179,
+            "economicValue": 679151.380931353,
+            "shortfall": 0,
+            "health": 1.4101604924929314
+          },
+          {
+            "address": "0xd1a2d9df5db842da2ee81075fa441602b2352915",
+            "debt": 10.065848,
+            "economicValue": 53.0989949359679,
+            "shortfall": 0,
+            "health": 4.057108954953423
+          }
+        ]
+      }
+    ],
+    "positionUsd": 1000000,
+    "lossUsd": {
+      "low": 5185.562092204438,
+      "high": 169127.62851047897
+    },
+    "lossFraction": {
+      "low": 0.005185562092204438,
+      "high": 0.16912762851047897
+    },
+    "limitStatus": "unresolved",
+    "liquidity": {
+      "beforeUsd": 1000000,
+      "afterUsd": 1000000,
+      "unavailableUsd": 0,
+      "totalQueueUsd": 48123943.97160073,
+      "reportedUsd": 48078863.03118104,
+      "label": "Queue-based capacity estimate, assuming withdrawals succeed and no earlier users consume the cash; not a transaction simulation."
+    },
+    "expectedLossUsd": null,
+    "expectedAvoidedLossUsd": null,
+    "decision": "Supply an event probability and total exit cost to compare staying with withdrawing.",
+    "recognition": {
+      "proportionalEconomicLoss": {
+        "low": 5185.562092204438,
+        "high": 169127.62851047897
+      },
+      "individualPayoutLossEnvelope": {
+        "low": 0,
+        "high": 1000000
+      },
+      "note": "Proportional economic exposure is not a promised redemption price. Vault loss-recognition implementation and withdrawal order are unverified."
+    },
+    "assumptions": [
+      "Instant collateral shock followed by eventual recovery at the declared discount; no liquidation timing, slippage curve or borrower top-up simulation.",
+      "Recovery discount also applies to unaffected markets when assessing their existing collateral coverage.",
+      "Oracle response is a scenario assumption, not a finding about feed behaviour.",
+      "Loss bounds cover missing collateral marks and borrower debt only; they are not confidence intervals or bounds on every possible failure.",
+      "The position size is hypothetical exposure to a real vault, not a verified wallet or a Belem holding."
+    ]
+  },
+  "reverse": {
+    "possible": 0,
+    "supportedByPricedBorrowers": 0.6102783360679496,
+    "label": "Collateral decline reaching the limit with the same recovery assumption. A zero possible boundary can result from missing valuations; it is not a prediction."
+  },
+  "curve": [
+    {
+      "shock": 0,
+      "loss": {
+        "low": 9.833971122236475e-10,
+        "high": 163942.06641827553
+      }
+    },
+    {
+      "shock": 0.1,
+      "loss": {
+        "low": 9.833971122236475e-10,
+        "high": 163942.06641827553
+      }
+    },
+    {
+      "shock": 0.2,
+      "loss": {
+        "low": 15.99459017993402,
+        "high": 163958.06100845448
+      }
+    },
+    {
+      "shock": 0.3,
+      "loss": {
+        "low": 1460.0077217748512,
+        "high": 165402.07414004937
+      }
+    },
+    {
+      "shock": 0.4,
+      "loss": {
+        "low": 9930.851634619106,
+        "high": 173872.91805289366
+      }
+    },
+    {
+      "shock": 0.5,
+      "loss": {
+        "low": 28223.05281320184,
+        "high": 192165.1192314764
+      }
+    },
+    {
+      "shock": 0.6,
+      "loss": {
+        "low": 90903.48670272788,
+        "high": 254845.55312100242
+      }
+    },
+    {
+      "shock": 0.7,
+      "loss": {
+        "low": 192707.11936012757,
+        "high": 356649.18577840214
+      }
+    },
+    {
+      "shock": 0.8,
+      "loss": {
+        "low": 304068.885084305,
+        "high": 468010.9515025796
+      }
+    },
+    {
+      "shock": 0.9,
+      "loss": {
+        "low": 416267.28791176603,
+        "high": 580209.3543300406
+      }
+    },
+    {
+      "shock": 1,
+      "loss": {
+        "low": 528794.834599267,
+        "high": 692736.9010175414
+      }
+    }
+  ]
+}

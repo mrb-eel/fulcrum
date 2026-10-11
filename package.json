@@ -1,0 +1,11 @@
+{
+  "name": "fulcrum-defi-risk-lab",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node src/server.js",
+    "test": "node --test",
+    "capture:snapshot": "node scripts/capture-snapshot.js"
+  }
+}

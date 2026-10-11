@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fulcrum · Vault X-ray</title>
+<meta name="description" content="X-ray of one Morpho vault: every market, borrower, oracle input and issuer beneath a deposit, with a stay-or-exit verdict.">
+<meta name="theme-color" content="#0a0f19"><link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Doto:wght@700;900&family=Martian+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="/xray.css"></head>
+<body><div id="chrome"></div>
+<main id="main">
+<section>
+  <div class="row" style="justify-content:space-between"><p class="eyebrow" style="margin:0">Vault view</p><label style="min-width:260px">Pocket<select id="pocket"></select></label></div>
+  <h1 id="title" style="margin-top:var(--s3)">Reading the vault…</h1>
+  <p class="mono muted" id="identity"></p>
+  <div class="split" style="margin-top:var(--s5)">
+    <div class="stack">
+      <div class="xsec" id="xsec" aria-label="The vault, market by market and layer by layer"></div>
+      <p class="small">One column per market, width proportional to allocation. Red: the oracle cannot observe a depeg of that collateral. Blue: it can. Yellow: hit by the selected shock.</p>
+    </div>
+    <aside class="stack">
+      <div class="verdict" id="verdict"><div class="skeleton"></div></div>
+      <form class="controls" id="controls" aria-label="Scenario">
+        <label>Shock type<select name="incident" id="incident"><option value="price-fall">Price shock</option><option value="depeg">Depeg</option><option value="feed-freeze">Oracle feed freeze</option><option value="withdrawal-freeze">Withdrawal freeze</option></select></label>
+        <label>Scenario<div class="seg" id="now"><button type="button" data-v="maybe" aria-pressed="true">Possible</button><button type="button" data-v="now" aria-pressed="false">In progress</button></div></label>
+        <label>Target<select name="targetId" id="target"></select></label>
+        <label>Shock size <span class="mono" id="shock-out">35%</span><input type="range" name="collateralShock" min="1" max="95" value="35"></label>
+        <label>Path<div class="seg" id="path"><button type="button" data-v="gap" aria-pressed="true">Instant gap</button><button type="button" data-v="gradual" aria-pressed="false">Gradual</button></div></label>
+        <label>Liquidation sale discount <span class="mono" id="disc-out">5%</span><input type="range" name="recoveryDiscount" min="0" max="20" step=".5" value="5"></label>
+        <label>Horizon (days)<input type="number" name="horizonDays" min="1" max="365" value="30"></label>
+        <label>Position size, USD<input type="number" name="positionUsd" min="1" value="1000000"></label>
+        <label>Loss limit, %<input type="number" name="lossLimit" min="0" max="100" value="10"></label>
+        <label>Probability override, % <span class="muted">(optional)</span><input type="number" name="eventProbability" min="0" max="100" step=".1" placeholder="use history"></label>
+        <label>Extra exit cost (slippage), %<input type="number" name="extraExitCost" min="0" max="100" step=".1" value="0"></label>
+        <label>Withdrawals ahead of you, USD<input type="number" name="otherWithdrawalsUsd" min="0" value="0"></label>
+        <label>Oracle response when unclassified<select name="oracleResponse"><option value="follows">follows the price</option><option value="frozen">stays frozen</option></select></label>
+        <label><span><input type="checkbox" name="drain" checked style="width:auto"> include borrowing against mispriced collateral</span></label>
+        <label><span><input type="checkbox" name="markOracle" style="width:auto"> mark unpriced collateral at the oracle price</span></label>
+      </form>
+      <p class="notice" id="notice" role="status"></p>
+    </aside>
+  </div>
+</section>
+<section>
+  <h2>Oracle coverage per market</h2>
+  <p class="small">Read from each oracle contract on-chain. If the oracle cannot observe a depeg, positions keep looking healthy, liquidations never trigger, and new borrowers can post the depegged collateral at the oracle price.</p>
+  <div class="table-wrap"><table><thead><tr><th>Market</th><th class="n">Of vault</th><th>Oracle reads</th><th>Peg it relies on</th><th>Sees a depeg?</th><th>Sees a price fall?</th></tr></thead><tbody id="sight"></tbody></table></div>
+</section>
+<section>
+  <div class="split">
+    <div class="stack"><h2>Loss decomposition</h2><div id="decomp"></div><div id="curve"></div></div>
+    <div class="stack"><h2>Reverse stress test</h2><div id="reverse"></div><div id="drivers"></div></div>
+  </div>
+</section>
+<section>
+  <h2>Markets</h2>
+  <p class="small">Click a market for its largest borrowers. Liquidator break-even is the largest sale discount at which liquidating is still profitable (1 - 1/LIF); above it liquidations stop and lenders absorb the shortfall.</p>
+  <div class="table-wrap"><table><thead><tr><th>Market</th><th class="n">Allocation</th><th class="n">Borrowers</th><th>Oracle response</th><th class="n">Liquidator break-even</th><th class="n">Incident loss to you</th><th class="n">Existing shortfall</th><th class="n">Queue cash</th></tr></thead><tbody id="markets"></tbody></table></div>
+  <div id="borrowers"></div>
+</section>
+<section>
+  <details class="evidence" id="evidence-box"><summary>Data sources and assumptions</summary><div id="evidence"></div></details>
+</section>
+</main>
+<footer class="foot"><span>FULCRUM · Belem Capital DeFi Risk Dependency Challenge · Blockchain Student Association hackathon</span><span>Real public vault · hypothetical deposit · read-only, no signing</span></footer>
+<div class="night" id="night" aria-hidden="true"><canvas id="night-film"></canvas><div class="say"><p class="eyebrow">Fulcrum · 3 a.m. mode · Esc to close</p><div class="word" id="night-word"></div><p id="night-line"></p><div class="stamp" id="night-stamp"></div></div></div>
+<script type="module" src="/vault.js"></script></body></html>
